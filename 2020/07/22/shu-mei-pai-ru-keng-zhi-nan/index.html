@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -55,7 +56,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Index</span>
+      <span>首页</span>
     </a>
     
   </li>
@@ -66,7 +67,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -77,7 +78,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -88,7 +89,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -99,7 +100,7 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>About</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -110,7 +111,7 @@
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>Contact</span>
+      <span>留言板</span>
     </a>
     
   </li>
@@ -121,14 +122,14 @@
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>Friends</span>
+      <span>友情链接</span>
     </a>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
 </ul>
@@ -158,7 +159,7 @@
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
-			Index
+			首页
 		</a>
           
         </li>
@@ -169,7 +170,7 @@
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
-			Tags
+			标签
 		</a>
           
         </li>
@@ -180,7 +181,7 @@
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
-			Categories
+			分类
 		</a>
           
         </li>
@@ -191,7 +192,7 @@
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
-			Archives
+			归档
 		</a>
           
         </li>
@@ -202,7 +203,7 @@
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
-			About
+			关于
 		</a>
           
         </li>
@@ -213,7 +214,7 @@
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
-			Contact
+			留言板
 		</a>
           
         </li>
@@ -224,7 +225,7 @@
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
-			Friends
+			友情链接
 		</a>
           
         </li>
@@ -429,7 +430,7 @@
                 <div class="col s7">
                     
                           <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                           </div>
                     
                 </div>
@@ -441,7 +442,7 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-07-22
                 </div>
                 
@@ -449,10 +450,25 @@
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -466,11 +482,7 @@
 <h3 id="散热片"><a href="#散热片" class="headerlink" title="散热片"></a>散热片</h3><p>虽然说官方不建议给CPU配备散热片, 但是散热片也没几块钱, 就买了一小套.</p>
 <h3 id="摄像头"><a href="#摄像头" class="headerlink" title="摄像头"></a>摄像头</h3><p>那种配置很高的摄像头没必要, 就买500W像素的就够. 就算你图像质量再高, 到DL模型时候还是需要reshape成更低像素的数据, 只是说图像质量高后提供更多的信息, 如果是跑小项目应该没必要. 我觉得买的24块钱的摄像头就足够.</p>
 <p>摄像头测试指令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raspistill -o image.jpg</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="飞鼠"><a href="#飞鼠" class="headerlink" title="飞鼠"></a>飞鼠</h3><p>也就是那种可触控式的鼠标和键盘, 好像挺装逼的, 可以买一个来玩玩, 暂时没啥必要.</p>
+<pre><code>raspistill -o image.jpg</code></pre><h3 id="飞鼠"><a href="#飞鼠" class="headerlink" title="飞鼠"></a>飞鼠</h3><p>也就是那种可触控式的鼠标和键盘, 好像挺装逼的, 可以买一个来玩玩, 暂时没啥必要.</p>
 <h2 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a>烧录系统</h2><ol>
 <li>下载Imager和系统镜像现在树莓派官网有更方便的Raspberry imager了, 也就是更方便的SD卡烧录软件. 去官网可以下载</li>
 </ol>
@@ -490,10 +502,14 @@
 <li><p>在boot下新建一个名为<code>ssh</code>的文件, 没有任何后缀, 这样可以在树莓派没开机的情况下开启SSH.</p>
 </li>
 <li><p>同在boot下新建一个名为<code>wpa_supplicant.conf</code>的文件, 其内容如下</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">country=GB</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line">network=&#123;</span><br><span class="line">	ssid=<span class="string">"你的wifi名字"</span></span><br><span class="line">	psk=<span class="string">"你的wifi密码"</span></span><br><span class="line">	priority=你想设的优先级大小, 数字越大越优先</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">country=GB
+ctrl_interface=<span class="token function">DIR</span>=<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>run<span class="token operator">/</span>wpa_supplicant <span class="token function">GROUP</span>=netdev
+update_config=1
+network=<span class="token punctuation">{</span>
+    ssid=<span class="token string">"你的wifi名字"</span>
+    psk=<span class="token string">"你的wifi密码"</span>
+    priority=你想设的优先级大小<span class="token punctuation">,</span> 数字越大越优先
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <ol start="8">
@@ -514,8 +530,7 @@
 </blockquote>
 </li>
 <li><p>ARP查询</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">arp <span class="token operator">-</span>a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>找到所有的动态IP然后一一排除. 其实与上述办法基本一致.</p>
 </li>
 <li><p>局域网扫描</p>
@@ -532,10 +547,11 @@
 <blockquote>
 <p>VNC(Virtual Network Console)是虚拟网络控制台的缩写。它 是一款优秀的远程控制工具软件，由著名的 AT&amp;T 的欧洲研究实验室开发的。VNC 是在基于 UNIX 和 Linux 操作系统的免费的开源软件，远程控制能力强大，高效实用，其性能可以和 Windows 和 MAC 中的任何远程控制软件媲美。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br><span class="line">sudo apt-get install tightvncserver</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>sudo apt-get install xrdp
+sudo apt-get install tightvncserver</code></pre></li>
 <li><p>将xrdp启动和添加默认项</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/xrdp start</span><br><span class="line">sudo <span class="built_in">update-rc</span>.d xrdp defaults</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo <span class="token operator">/</span>etc<span class="token operator">/</span>init<span class="token punctuation">.</span>d<span class="token operator">/</span>xrdp <span class="token function">start</span>
+sudo update<span class="token operator">-</span>rc<span class="token punctuation">.</span>d xrdp defaults<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>然后用Windows自带的远程连接, 连接树莓派ip即可, 账号密码同前.</p>
 </li>
@@ -554,11 +570,10 @@
 <h3 id="用TeamViewer连接树莓派"><a href="#用TeamViewer连接树莓派" class="headerlink" title="用TeamViewer连接树莓派"></a>用TeamViewer连接树莓派</h3><p>坑 待填</p>
 <h3 id="树莓派的关机和重启"><a href="#树莓派的关机和重启" class="headerlink" title="树莓派的关机和重启"></a>树莓派的关机和重启</h3><ul>
 <li><p>树莓派关机</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown <span class="literal">-h</span> now</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo shutdown <span class="token operator">-</span>h now<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>树莓派重启</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><h3 id="将接口配置打开"><a href="#将接口配置打开" class="headerlink" title="将接口配置打开"></a>将接口配置打开</h3><p>在<code>raspi-config</code>的<code>Interfacing options</code>中, 有很多功能选项都可以打开.</p>
@@ -570,31 +585,36 @@
 <p>Remote GPIO：远程GPIO引脚控制</p>
 </blockquote>
 <h3 id="给apt-get换源"><a href="#给apt-get换源" class="headerlink" title="给apt-get换源"></a>给apt-get换源</h3><p>在终端中输入:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo nano <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>sources<span class="token punctuation">.</span>list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后用上下左右控制光标, 将唯一有效的默认网址加<code>#</code>注释掉, 然后在最下面加上:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non<span class="literal">-free</span> contrib</span><br><span class="line">deb<span class="literal">-src</span> http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non<span class="literal">-free</span> contrib</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：</span>
+deb http:<span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>raspbian<span class="token operator">/</span>raspbian<span class="token operator">/</span> buster main non<span class="token operator">-</span>free contrib
+deb<span class="token operator">-</span>src http:<span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>raspbian<span class="token operator">/</span>raspbian<span class="token operator">/</span> buster main non<span class="token operator">-</span>free contrib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>按<strong>ctrl+o</strong>提交改动, 再按回车保存, 按<strong>ctrl+x</strong>退出nano.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui</span><br></pre></td></tr></table></figure>
-
-<h3 id="给pip换源"><a href="#给pip换源" class="headerlink" title="给pip换源"></a>给pip换源</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir ~/.pip</span><br><span class="line">cd .pip</span><br><span class="line">sudo nano pip.conf</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：</span>
+deb http:<span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>raspberrypi<span class="token operator">/</span> buster main ui<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="给pip换源"><a href="#给pip换源" class="headerlink" title="给pip换源"></a>给pip换源</h3><pre class="line-numbers language-powershell"><code class="language-powershell">sudo mkdir ~<span class="token operator">/</span><span class="token punctuation">.</span>pip
+cd <span class="token punctuation">.</span>pip
+sudo nano pip<span class="token punctuation">.</span>conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在pip.conf里输入以下内容</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">global</span>]</span><br><span class="line">timeout = <span class="number">10</span></span><br><span class="line">index<span class="literal">-url</span> =  http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra<span class="literal">-index</span><span class="literal">-url</span>= http://pypi.douban.com/simple/</span><br><span class="line">[<span class="type">install</span>]</span><br><span class="line">trusted<span class="literal">-host</span>=</span><br><span class="line">    mirrors.aliyun.com</span><br><span class="line">    pypi.douban.com</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token namespace">[global]</span>
+timeout = 10
+index<span class="token operator">-</span>url =  http:<span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>pypi<span class="token operator">/</span>simple<span class="token operator">/</span>
+extra<span class="token operator">-</span>index<span class="token operator">-</span>url= http:<span class="token operator">/</span><span class="token operator">/</span>pypi<span class="token punctuation">.</span>douban<span class="token punctuation">.</span>com<span class="token operator">/</span>simple<span class="token operator">/</span>
+<span class="token namespace">[install]</span>
+trusted<span class="token operator">-</span>host=
+    mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com
+    pypi<span class="token punctuation">.</span>douban<span class="token punctuation">.</span>com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>保存方式同上.</p>
 <h3 id="切换Python版本"><a href="#切换Python版本" class="headerlink" title="切换Python版本"></a>切换Python版本</h3><p>树莓派默认的python版本是2.7, 但是大多数人早在用python3了, 所以应该及时切换到最新版本</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-install</span> /usr/bin/python python /usr/bin/python2 <span class="number">100</span></span><br><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-install</span> /usr/bin/python python /usr/bin/python3 <span class="number">150</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo update<span class="token operator">-</span>alternatives <span class="token operator">--</span>install <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python python <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python2 100
+sudo update<span class="token operator">-</span>alternatives <span class="token operator">--</span>install <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python python <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>python3 150<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果要切换回python2.7可以用如下指令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-config</span> python</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">sudo update<span class="token operator">-</span>alternatives <span class="token operator">--</span>config python<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="配置中文系统"><a href="#配置中文系统" class="headerlink" title="配置中文系统"></a>配置中文系统</h3><ul>
 <li><p>先装个中文输入法和字体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fonts-wqy-zenhei</span><br><span class="line">sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin</span><br></pre></td></tr></table></figure>
-
-<p>可以使用<code>ctrl</code>+<code>空格</code>切换为中文输入法.</p>
+<pre><code>sudo apt-get install fonts-wqy-zenhei
+sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin</code></pre><p>可以使用<code>ctrl</code>+<code>空格</code>切换为中文输入法.</p>
 </li>
 </ul>
 <p>说实话中文linux太捞了, 只建议把时区改回中国, 均为<code>sudo raspi-config</code>的<strong>Localisation Options</strong>中的设置</p>
@@ -605,30 +625,45 @@
 </ul>
 <h2 id="安装OpenCV-神坑"><a href="#安装OpenCV-神坑" class="headerlink" title="安装OpenCV(神坑)"></a>安装OpenCV(神坑)</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先要在<code>raspi-config</code>中的<code>Advanced Options</code>中的第一个选项<code>Expand Filesystem Ensures...</code>将文件系统的空间扩展至整个SD卡. 之后重启, 重启后用<code>df -h</code>查看磁盘是否已经扩展.</p>
 <p>如果空间不够, 可以用删除缓存的方法扩大一些空间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge wolfram-engine</span><br><span class="line">sudo apt-get purge libreoffice*</span><br><span class="line">sudo apt-get clean</span><br><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
+<pre><code>sudo apt-get purge wolfram-engine
+sudo apt-get purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove</code></pre><p>在这之后要例行更新一下系统.</p>
+<h3 id="安装各种准备库"><a href="#安装各种准备库" class="headerlink" title="安装各种准备库"></a>安装各种准备库</h3><pre><code>//安装Cmake等编译openCV源码的工具
+sudo apt-get install build-essential cmake git pkg-config 
 
-<p>在这之后要例行更新一下系统.</p>
-<h3 id="安装各种准备库"><a href="#安装各种准备库" class="headerlink" title="安装各种准备库"></a>安装各种准备库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;安装Cmake等编译openCV源码的工具</span><br><span class="line">sudo apt-get install build-essential cmake git pkg-config </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装常用图像工具包</span><br><span class="line">sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装视频操作的包</span><br><span class="line">sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  </span><br><span class="line">sudo apt-get install libxvidcore-dev libx264-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; openCV用于图像&#x2F;GUI展示的功能依赖highgui模块，为了编译它我们需要安装libgtk2.0-dev</span><br><span class="line">sudo apt-get install libgtk2.0-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装OpenCV数值优化函数包</span><br><span class="line">sudo apt-get install libatlas-base-dev gfortran</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装构建Python扩展所需要的头文件</span><br><span class="line">sudo apt-get install python2.7-dev python3-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果缺少其他依赖, 尝试安装下述两个包</span><br><span class="line">sudo apt-get install libhdf5-dev</span><br><span class="line">sudo apt-get install libqt4-test</span><br></pre></td></tr></table></figure>
+// 安装常用图像工具包
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 
-<h3 id="下载Opencv"><a href="#下载Opencv" class="headerlink" title="下载Opencv"></a>下载Opencv</h3><p>一个是Opencv的zip, 还有一个是Opencv_contrib的zip. 经过很多折腾和摸索, 最后发现4.1.0的版本在CMake时编译不会产生错误, 所以最后选择了4.1.0版本.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O opencv-4.1.0.zip https:&#x2F;&#x2F;github.com&#x2F;Itseez&#x2F;opencv&#x2F;archive&#x2F;4.1.0.zip</span><br><span class="line">wget -O opencv_contrib-4.1.0.zip https:&#x2F;&#x2F;github.com&#x2F;Itseez&#x2F;opencv_contrib&#x2F;archive&#x2F;4.1.0.zip</span><br></pre></td></tr></table></figure>
+// 安装视频操作的包
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  
+sudo apt-get install libxvidcore-dev libx264-dev
 
-<h3 id="设置交换空间"><a href="#设置交换空间" class="headerlink" title="设置交换空间"></a>设置交换空间</h3><p>这个交换空间是在内存不够用的时候, 将磁盘空间充当内存空间的方法. 分配太多的Swap空间会浪费磁盘, 甚至对SD卡造成损坏且减少寿命, 一般设置在2G一下. 但是因为编译可能会占用很多的内存, 所以短时间增大Swap空间的大小是可以的.</p>
+// openCV用于图像/GUI展示的功能依赖highgui模块，为了编译它我们需要安装libgtk2.0-dev
+sudo apt-get install libgtk2.0-dev
+
+// 安装OpenCV数值优化函数包
+sudo apt-get install libatlas-base-dev gfortran
+
+// 安装构建Python扩展所需要的头文件
+sudo apt-get install python2.7-dev python3-dev
+
+// 如果缺少其他依赖, 尝试安装下述两个包
+sudo apt-get install libhdf5-dev
+sudo apt-get install libqt4-test</code></pre><h3 id="下载Opencv"><a href="#下载Opencv" class="headerlink" title="下载Opencv"></a>下载Opencv</h3><p>一个是Opencv的zip, 还有一个是Opencv_contrib的zip. 经过很多折腾和摸索, 最后发现4.1.0的版本在CMake时编译不会产生错误, 所以最后选择了4.1.0版本.</p>
+<pre><code>wget -O opencv-4.1.0.zip https://github.com/Itseez/opencv/archive/4.1.0.zip
+wget -O opencv_contrib-4.1.0.zip https://github.com/Itseez/opencv_contrib/archive/4.1.0.zip</code></pre><h3 id="设置交换空间"><a href="#设置交换空间" class="headerlink" title="设置交换空间"></a>设置交换空间</h3><p>这个交换空间是在内存不够用的时候, 将磁盘空间充当内存空间的方法. 分配太多的Swap空间会浪费磁盘, 甚至对SD卡造成损坏且减少寿命, 一般设置在2G一下. 但是因为编译可能会占用很多的内存, 所以短时间增大Swap空间的大小是可以的.</p>
 <p><code>sudo nano /etc/dphys-swapfile</code>将<code>CONF_SWAPSIZE</code>改为2048</p>
 <p><code>sudo /etc/init.d/dphys-swapfile stop</code> </p>
 <p><code>sudo /etc/init.d/dphys-swapfile start</code></p>
 <p>这样才能重启交换服务.</p>
 <p><strong>千万不要忘记在安装完后把它改回来.</strong></p>
 <h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><p>对<code>opencv-4.1.0.zip</code>和<code>opencv_contrib-4.1.0.zip</code>两个文件进行解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip opencv_contrib-4.1.0.zip</span><br><span class="line">unzip opencv-4.1.0.zip</span><br></pre></td></tr></table></figure>
-
-<p>然后切换至``opencv-4.1.0<code>这个文件夹, 并在其下面新建编译文件准备存放的目录</code>build`</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;opencv-4.1.0&#x2F;</span><br><span class="line">mkdir build &amp; cd build</span><br></pre></td></tr></table></figure>
-
-<p>然后开始进行编译的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -D ENABLE_PRECOMPILED_HEADERS&#x3D;OFF \ -D CMAKE_BUILD_TYPE&#x3D;RELEASE \ -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local \ -D INSTALL_PYTHON_EXAMPLES&#x3D;ON \ -D OPENCV_EXTRA_MODULES_PATH&#x3D;~&#x2F;opencv_contrib-4.1.0&#x2F;modules \ -D BUILD_EXAMPLES&#x3D;ON ..</span><br></pre></td></tr></table></figure>
-
-<blockquote>
+<pre><code>unzip opencv_contrib-4.1.0.zip
+unzip opencv-4.1.0.zip</code></pre><p>然后切换至``opencv-4.1.0<code>这个文件夹, 并在其下面新建编译文件准备存放的目录</code>build`</p>
+<pre><code>cd ~/opencv-4.1.0/
+mkdir build &amp; cd build</code></pre><p>然后开始进行编译的配置</p>
+<pre><code>cmake -D ENABLE_PRECOMPILED_HEADERS=OFF \ -D CMAKE_BUILD_TYPE=RELEASE \ -D CMAKE_INSTALL_PREFIX=/usr/local \ -D INSTALL_PYTHON_EXAMPLES=ON \ -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.1.0/modules \ -D BUILD_EXAMPLES=ON ..</code></pre><blockquote>
 <p>如果遇到BUG<br><code>fatal error: opencv2/xfeatures2d/cuda.hpp: No such file or directory
 include “opencv2/xfeatures2d/cuda.hpp”</code></p>
 <p><strong>解决办法：</strong><br>在CMakeLists.txt增加以下内容：</p>
@@ -637,12 +672,28 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
 <p><code>你的opencv路径/modules/stitching/CMakeLists.txt</code></p>
 </blockquote>
 <p>下面开始编译, 这个过程十分漫长, 可以加上参数<code>-j4</code>让四个线程同时跑, 如果对自己机器没有信心也可以不加, 编译失败的话可以尝试去掉<code>-j4</code>这个参数直接make. __请注意命令中的opencv_contrib-4.1.0文件夹的位置是否和解压的位置相符.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make -j4 </span><br><span class="line">make install </span><br><span class="line">make ldconfig</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-powershell"><code class="language-powershell">make <span class="token operator">-</span>j4 
+make install 
+make ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>大功告成, 接下来就可以测试你的摄像头好不好使了.</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>打开<code>Thoony</code>, 以下是测试摄像头的代码, 如果没有摄像头只需要在终端里面进入python, 然后import cv2看看是否报错即可.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">cap.set(<span class="number">3</span>, <span class="number">640</span>)</span><br><span class="line">cap.set(<span class="number">4</span>, <span class="number">480</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>)</span><br><span class="line">	ret, frame = cap.read()</span><br><span class="line">    cv2.imshow(<span class="string">'frame'</span>, frame)</span><br><span class="line">    </span><br><span class="line">    k = cv2.waitKey(<span class="number">30</span>) &amp; <span class="number">0xff</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">27</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> cv2
 
+cap <span class="token operator">=</span> cv2<span class="token punctuation">.</span>VideoCapture<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+cap<span class="token punctuation">.</span>set<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">640</span><span class="token punctuation">)</span>
+cap<span class="token punctuation">.</span>set<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    ret<span class="token punctuation">,</span> frame <span class="token operator">=</span> cap<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">'frame'</span><span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
+
+    k <span class="token operator">=</span> cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xff</span>
+    <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">27</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+
+cap<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cv2<span class="token punctuation">.</span>destroyAllWindows<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -654,7 +705,7 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        文章作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -664,23 +715,23 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        文章链接:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ADAning.github.io/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/">https://ADAning.github.io/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/</a>
+                    <a href="https://ADAning.github.io/2020/07/22/shu-mei-pai-ru-keng-zhi-nan/">https://ADAning.github.io/2020/07/22/shu-mei-pai-ru-keng-zhi-nan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        版权声明:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
+                    许可协议。转载请注明来源
                     <a href="/about" target="_blank">AnNing</a>
                     !
                 </span>
@@ -690,7 +741,7 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
@@ -705,7 +756,7 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -724,132 +775,6 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
 
                 </div>
             </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -871,32 +796,30 @@ include “opencv2/xfeatures2d/cuda.hpp”</code></p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/">
+                <a href="/2020/07/22/ji-suan-ji-wang-luo-xue-xiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="树莓派入坑指南">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络-学校">
                         
-                        <span class="card-title">树莓派入坑指南</span>
+                        <span class="card-title">计算机网络-学校</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            树莓派入坑指南配件购买最好不要一起套装, 自己组一套可以比店里的套装划算很多.
-主板树莓派4B和3B+具有差不多的价格, 但是4B明显性能提升还是挺明显的所以直接买4B
-SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
+                            Computer NetworkAuthor: AnNingDate:  Before 2019.12.25
+Chapter 1 Computer Networks and the Internet (about 10%)1.1 What’
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -905,7 +828,6 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -913,7 +835,7 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/07/22/hello-world/">
@@ -982,7 +904,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -1079,7 +1001,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
@@ -1167,13 +1088,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/ADAning" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:695439722@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1183,7 +1104,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=695439722" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 695439722" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1208,8 +1129,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -1256,8 +1177,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

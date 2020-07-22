@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 安大宁的博客">
+    <meta name="keywords" content="MathJax和英文小括号的冲突, 安大宁的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 安大宁的博客</title>
+    <title>MathJax和英文小括号的冲突 | 安大宁的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">MathJax和英文小括号的冲突</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-22
+                    2020-07-23
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    364
                 </div>
                 
 
@@ -474,15 +474,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h1 id="MathJax和英文小括号的冲突"><a href="#MathJax和英文小括号的冲突" class="headerlink" title="MathJax和英文小括号的冲突"></a>MathJax和英文小括号的冲突</h1><p>如果你即使用了hexo也使用了MathJax, 那么有很大几率你会使用小括号来正常书写文章内容. </p>
+<p>譬如:</p>
+<p>This text is (in parenthesis) but it doesn’t work.</p>
+<p>它会显示成:</p>
+<p>This text is $in parenthesis$ but it doesn’t work.</p>
+<p>起初, 我一度认为是MathJax的大括号冲突导致了某个地方的小括号也出了同样的渲染问题, 但后来发现问题完全跑偏了. 这个真的卡了我挺长时间的… 很多地方都没有记载过这个问题. 直到我查找了关于MathJax3.0版本的配置问题, 才找到一段script, 那么2.7是不是也应该有相应的一段呢?</p>
+<p>在<code>blog\themes\hexo-theme-matery\layout\post.ejs</code>中, 有这样一段代码, 是用来调整内联公式的识别方式的. 如果不添加这段js, Mathjax只能识别大的公式, 而不能识别内联公式. 很明显, 这里直接就将转义后的<code>()</code>小括号对也当做公式匹配范围了, 也就不难解释之前错误识别的情况.</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>mathjax<span class="token punctuation">.</span>enable <span class="token operator">&amp;&amp;</span> page<span class="token punctuation">.</span>mathjax<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"&lt;%- theme.mathjax.cdn %>"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    MathJax<span class="token punctuation">.</span>Hub<span class="token punctuation">.</span><span class="token function">Config</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        tex2jax<span class="token punctuation">:</span> <span class="token punctuation">{</span>inlineMath<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'$'</span><span class="token punctuation">,</span> <span class="token string">'$'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'\('</span><span class="token punctuation">,</span> <span class="token string">'\)'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们只要把<code>[&#39;\(&#39;, &#39;\)&#39;]</code>删去, 或者替换成更严格匹配的括号对<code>[&#39;\\(&#39;, &#39;\\)&#39;]</code>, 就能解决在博客markdown不能正确显示小括号内容的问题.</p>
 
             </div>
             <hr/>
@@ -508,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ADAning.github.io/2020/07/22/hello-world/">https://ADAning.github.io/2020/07/22/hello-world/</a>
+                    <a href="https://ADAning.github.io/2020/07/23/ce-shi-wen-zi/">https://ADAning.github.io/2020/07/23/ce-shi-wen-zi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,31 +592,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/22/shu-mei-pai-ru-keng-zhi-nan/">
+                <a href="/2020/07/23/ce-shi-wen-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="树莓派入坑指南">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MathJax和英文小括号的冲突">
                         
-                        <span class="card-title">树莓派入坑指南</span>
+                        <span class="card-title">MathJax和英文小括号的冲突</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            树莓派入坑指南配件购买最好不要一起套装, 自己组一套可以比店里的套装划算很多.
-主板树莓派4B和3B+具有差不多的价格, 但是4B明显性能提升还是挺明显的所以直接买4B
-SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
+                            MathJax和英文小括号的冲突如果你即使用了hexo也使用了MathJax, 那么有很大几率你会使用小括号来正常书写文章内容. 
+譬如:
+This text is (in parenthesis) but it doesn’t work.
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -618,6 +626,7 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -625,22 +634,23 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/22/hello-world/">
+                <a href="/2020/07/22/ji-suan-ji-wang-luo-xue-xiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络-学校">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">计算机网络-学校</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            Computer NetworkAuthor: AnNingDate:  Before 2019.12.25
+Chapter 1 Computer Networks and the Internet (about 10%)1.1 What’
                         
                     </div>
                     <div class="publish-info">
@@ -655,7 +665,6 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -790,6 +799,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'],]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
