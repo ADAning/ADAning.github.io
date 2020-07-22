@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 安大宁的博客">
+    <meta name="keywords" content="树莓派入坑指南, 安大宁的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 安大宁的博客</title>
+    <title>树莓派入坑指南 | 安大宁的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">树莓派入坑指南</h1>
                 </div>
             </div>
         </div>
@@ -458,19 +458,191 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <h1 id="树莓派入坑指南"><a href="#树莓派入坑指南" class="headerlink" title="树莓派入坑指南"></a>树莓派入坑指南</h1><h2 id="配件购买"><a href="#配件购买" class="headerlink" title="配件购买"></a>配件购买</h2><p>最好不要一起套装, 自己组一套可以比店里的套装划算很多.</p>
+<h3 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h3><p>树莓派4B和3B+具有差不多的价格, 但是4B明显性能提升还是挺明显的所以直接买4B</p>
+<h3 id="SD卡-读卡器"><a href="#SD卡-读卡器" class="headerlink" title="SD卡+读卡器"></a>SD卡+读卡器</h3><p>16/32/64GB都可以, 现在情况16和32的价格差不多, 空间翻一倍, 买32G足够. 据说空间更大的可能导致树莓派无法开机.</p>
+<h3 id="风扇-外壳"><a href="#风扇-外壳" class="headerlink" title="风扇+外壳"></a>风扇+外壳</h3><p>没有必要买官方原装或者是金属的外壳, 直接买亚克力板的外壳就行, 最好配备风扇, 夏天这玩意跑起来实在是吃不消.</p>
+<h3 id="充电器"><a href="#充电器" class="headerlink" title="充电器"></a>充电器</h3><p>树莓派4B官方说用5V3A的type-c充电器, 比3B+的要高了0.5A. 充电器最好是买带开关的, 因为树莓派的type-c口拔拔插插的很麻烦, 一个开关可以节省很多事情.</p>
+<h3 id="散热片"><a href="#散热片" class="headerlink" title="散热片"></a>散热片</h3><p>虽然说官方不建议给CPU配备散热片, 但是散热片也没几块钱, 就买了一小套.</p>
+<h3 id="摄像头"><a href="#摄像头" class="headerlink" title="摄像头"></a>摄像头</h3><p>那种配置很高的摄像头没必要, 就买500W像素的就够. 就算你图像质量再高, 到DL模型时候还是需要reshape成更低像素的数据, 只是说图像质量高后提供更多的信息, 如果是跑小项目应该没必要. 我觉得买的24块钱的摄像头就足够.</p>
+<p>摄像头测试指令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raspistill -o image.jpg</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="飞鼠"><a href="#飞鼠" class="headerlink" title="飞鼠"></a>飞鼠</h3><p>也就是那种可触控式的鼠标和键盘, 好像挺装逼的, 可以买一个来玩玩, 暂时没啥必要.</p>
+<h2 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a>烧录系统</h2><ol>
+<li>下载Imager和系统镜像现在树莓派官网有更方便的Raspberry imager了, 也就是更方便的SD卡烧录软件. 去官网可以下载</li>
+</ol>
+<p><a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">https://www.raspberrypi.org/downloads/</a></p>
+<blockquote>
+<p>系统中建议用Raspbian, NOOBS会占用很多没有必要的空间.</p>
+</blockquote>
+<ol start="2">
+<li><p>先将读卡器插入SD卡中, 然后把USB读卡器插到电脑上</p>
+</li>
+<li><p>如果SD卡是新的可以不用清除, 若是旧的则先要用Imager进行卡的擦除.</p>
+</li>
+<li><p>下载完镜像<code>.zip</code>后进行解压, 然后打开Imager选择解压完的<code>.img</code>文件和你的SD卡进行系统烧录.</p>
+</li>
+<li><p>安装后打开boot盘(不要看错盘符)</p>
+</li>
+<li><p>在boot下新建一个名为<code>ssh</code>的文件, 没有任何后缀, 这样可以在树莓派没开机的情况下开启SSH.</p>
+</li>
+<li><p>同在boot下新建一个名为<code>wpa_supplicant.conf</code>的文件, 其内容如下</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">country=GB</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line">network=&#123;</span><br><span class="line">	ssid=<span class="string">"你的wifi名字"</span></span><br><span class="line">	psk=<span class="string">"你的wifi密码"</span></span><br><span class="line">	priority=你想设的优先级大小, 数字越大越优先</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+
+</li>
+</ol>
+<ol start="8">
+<li>安全退出SD卡, 并将SD卡怼入树莓派SD卡插槽中, 准备树莓派的开机之旅.</li>
+</ol>
+<h2 id="开机过程"><a href="#开机过程" class="headerlink" title="开机过程"></a>开机过程</h2><h3 id="两种指示灯"><a href="#两种指示灯" class="headerlink" title="两种指示灯"></a>两种指示灯</h3><blockquote>
+<p>树莓派有两个指示灯, 一个是红灯, 一个是绿灯.</p>
+<p>红灯是电源指示灯, 红灯常亮说明电源接通正常, 若红灯闪烁说明电源质量不佳, 可能是功率问题, 也可能是接触不良等.</p>
+<p>绿灯是读写指示灯, 可以通过绿灯闪烁情况观察到储存卡的读写情况.</p>
+</blockquote>
+<p>给树莓派接上电源, 观察到红灯常亮, 绿灯闪烁非常频繁, 这说明树莓派供电良好, 正在初始化系统.正常情况下树莓派4B2G在5分钟以内一定会完成第一次初始化. <strong>当树莓派连入前面设置的wifi后, 初始化就完成了.</strong> 接下来就需要找到树莓派的IP, 用电脑和它进行SSH连接.</p>
+<h3 id="找到树莓派地址"><a href="#找到树莓派地址" class="headerlink" title="找到树莓派地址"></a>找到树莓派地址</h3><p>找到ip地址有很多种花样, 只要会其中一种就行了</p>
+<ol>
+<li><p>通过wifi寻找</p>
+<p>既然树莓派开机默认连上了wifi, 说明树莓派系统初始化已经完成. 直接登录wifi的管理界面就能看到所有设备信息, 能很容易地找到一台刚加入网络的设备, 肯定是树莓派, 记录下它的ip地址. </p>
+<blockquote>
+<p>如果不知道自己家路由器ip, 在cmd里敲ipconfig能看到本机网卡的网关, 那个就是路由器地址.</p>
+</blockquote>
+</li>
+<li><p>ARP查询</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
+
+<p>找到所有的动态IP然后一一排除. 其实与上述办法基本一致.</p>
+</li>
+<li><p>局域网扫描</p>
+<p>这个网上有很多软件一抓一大把. 也是与前两种方法一样.</p>
+</li>
+</ol>
+<h3 id="SSH连接"><a href="#SSH连接" class="headerlink" title="SSH连接"></a>SSH连接</h3><p>用putty可以轻松完成连接功能, 在连接的IP中输入刚才找到的ip, 端口号默认是22不要动, 会弹出一个命令行</p>
+<p><strong>填入用户名pi, 密码raspberry</strong>就能连接到树莓派上了, 若出现命令行变色, 且路径发生变化说明连接成功.</p>
+<h3 id="用Windows远程桌面连接树莓派"><a href="#用Windows远程桌面连接树莓派" class="headerlink" title="用Windows远程桌面连接树莓派"></a>用Windows远程桌面连接树莓派</h3><ul>
+<li><p>安装xrdp和VNC</p>
+<blockquote>
+<p>Xrdp是一个开源工具，允许用户通过Windows RDP访问Linux远程桌面。 除了Windows RDP之外，xrdp工具还接受来自其他RDP客户端的连接，如FreeRDP，rdesktop和NeutrinoRDP。 Xrdp现在支持TLS安全层。</p>
+</blockquote>
+<blockquote>
+<p>VNC(Virtual Network Console)是虚拟网络控制台的缩写。它 是一款优秀的远程控制工具软件，由著名的 AT&amp;T 的欧洲研究实验室开发的。VNC 是在基于 UNIX 和 Linux 操作系统的免费的开源软件，远程控制能力强大，高效实用，其性能可以和 Windows 和 MAC 中的任何远程控制软件媲美。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br><span class="line">sudo apt-get install tightvncserver</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将xrdp启动和添加默认项</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/xrdp start</span><br><span class="line">sudo <span class="built_in">update-rc</span>.d xrdp defaults</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用Windows自带的远程连接, 连接树莓派ip即可, 账号密码同前.</p>
+</li>
+</ul>
+<h3 id="用VNCViewer连接树莓派"><a href="#用VNCViewer连接树莓派" class="headerlink" title="用VNCViewer连接树莓派"></a>用VNCViewer连接树莓派</h3><ol>
+<li><p>首先要在电脑中下载VNCviewer</p>
+</li>
+<li><p>在树莓派终端中输入<code>sudo raspi-config</code>, 选择<strong>Interfacing options</strong>, 找到VNC的设置将其打开.</p>
+</li>
+<li><p>用VNCViewer连接树莓派ip, 账号密码同前.</p>
+<blockquote>
+<p>若出现当前桌面无法显示的黑屏情况<code>cannot currently show the desktop</code>, 请在树莓派设置中将<strong>Advanced options</strong>找到分辨率(Resolution)调高, 反正不是默认的就行.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="用TeamViewer连接树莓派"><a href="#用TeamViewer连接树莓派" class="headerlink" title="用TeamViewer连接树莓派"></a>用TeamViewer连接树莓派</h3><p>坑 待填</p>
+<h3 id="树莓派的关机和重启"><a href="#树莓派的关机和重启" class="headerlink" title="树莓派的关机和重启"></a>树莓派的关机和重启</h3><ul>
+<li><p>树莓派关机</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown <span class="literal">-h</span> now</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>树莓派重启</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><h3 id="将接口配置打开"><a href="#将接口配置打开" class="headerlink" title="将接口配置打开"></a>将接口配置打开</h3><p>在<code>raspi-config</code>的<code>Interfacing options</code>中, 有很多功能选项都可以打开.</p>
+<blockquote>
+<p>Camera：摄像头</p>
+<p>SSH：ssh远程通信与登陆</p>
+<p>VNC：VNC远程桌面登陆</p>
+<p>Serial：串口控制</p>
+<p>Remote GPIO：远程GPIO引脚控制</p>
+</blockquote>
+<h3 id="给apt-get换源"><a href="#给apt-get换源" class="headerlink" title="给apt-get换源"></a>给apt-get换源</h3><p>在终端中输入:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>然后用上下左右控制光标, 将唯一有效的默认网址加<code>#</code>注释掉, 然后在最下面加上:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non<span class="literal">-free</span> contrib</span><br><span class="line">deb<span class="literal">-src</span> http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non<span class="literal">-free</span> contrib</span><br></pre></td></tr></table></figure>
+
+<p>按<strong>ctrl+o</strong>提交改动, 再按回车保存, 按<strong>ctrl+x</strong>退出nano.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui</span><br></pre></td></tr></table></figure>
+
+<h3 id="给pip换源"><a href="#给pip换源" class="headerlink" title="给pip换源"></a>给pip换源</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir ~/.pip</span><br><span class="line">cd .pip</span><br><span class="line">sudo nano pip.conf</span><br></pre></td></tr></table></figure>
+
+<p>在pip.conf里输入以下内容</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">global</span>]</span><br><span class="line">timeout = <span class="number">10</span></span><br><span class="line">index<span class="literal">-url</span> =  http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra<span class="literal">-index</span><span class="literal">-url</span>= http://pypi.douban.com/simple/</span><br><span class="line">[<span class="type">install</span>]</span><br><span class="line">trusted<span class="literal">-host</span>=</span><br><span class="line">    mirrors.aliyun.com</span><br><span class="line">    pypi.douban.com</span><br></pre></td></tr></table></figure>
+
+<p>保存方式同上.</p>
+<h3 id="切换Python版本"><a href="#切换Python版本" class="headerlink" title="切换Python版本"></a>切换Python版本</h3><p>树莓派默认的python版本是2.7, 但是大多数人早在用python3了, 所以应该及时切换到最新版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-install</span> /usr/bin/python python /usr/bin/python2 <span class="number">100</span></span><br><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-install</span> /usr/bin/python python /usr/bin/python3 <span class="number">150</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要切换回python2.7可以用如下指令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">update-alternatives</span> -<span class="literal">-config</span> python</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置中文系统"><a href="#配置中文系统" class="headerlink" title="配置中文系统"></a>配置中文系统</h3><ul>
+<li><p>先装个中文输入法和字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fonts-wqy-zenhei</span><br><span class="line">sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin</span><br></pre></td></tr></table></figure>
+
+<p>可以使用<code>ctrl</code>+<code>空格</code>切换为中文输入法.</p>
+</li>
+</ul>
+<p>说实话中文linux太捞了, 只建议把时区改回中国, 均为<code>sudo raspi-config</code>的<strong>Localisation Options</strong>中的设置</p>
+<ul>
+<li><strong>Change Locale</strong> 可以更改国家, 等到光标达到zh_CN.UTF-8 UTF-8时按空格, 然后选择默认区域为zh_CN.UTF-8可以改为中文(真的很捞).</li>
+<li><strong>Change Timezone __可以更改时区, 选择</strong>Asia__, <strong>Shanghai</strong>即为中国时间.</li>
+<li>__Change Wi-fi Country __ 选择wifi国家, CN China为中国.</li>
+</ul>
+<h2 id="安装OpenCV-神坑"><a href="#安装OpenCV-神坑" class="headerlink" title="安装OpenCV(神坑)"></a>安装OpenCV(神坑)</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先要在<code>raspi-config</code>中的<code>Advanced Options</code>中的第一个选项<code>Expand Filesystem Ensures...</code>将文件系统的空间扩展至整个SD卡. 之后重启, 重启后用<code>df -h</code>查看磁盘是否已经扩展.</p>
+<p>如果空间不够, 可以用删除缓存的方法扩大一些空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge wolfram-engine</span><br><span class="line">sudo apt-get purge libreoffice*</span><br><span class="line">sudo apt-get clean</span><br><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
+
+<p>在这之后要例行更新一下系统.</p>
+<h3 id="安装各种准备库"><a href="#安装各种准备库" class="headerlink" title="安装各种准备库"></a>安装各种准备库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;安装Cmake等编译openCV源码的工具</span><br><span class="line">sudo apt-get install build-essential cmake git pkg-config </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装常用图像工具包</span><br><span class="line">sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装视频操作的包</span><br><span class="line">sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  </span><br><span class="line">sudo apt-get install libxvidcore-dev libx264-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; openCV用于图像&#x2F;GUI展示的功能依赖highgui模块，为了编译它我们需要安装libgtk2.0-dev</span><br><span class="line">sudo apt-get install libgtk2.0-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装OpenCV数值优化函数包</span><br><span class="line">sudo apt-get install libatlas-base-dev gfortran</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 安装构建Python扩展所需要的头文件</span><br><span class="line">sudo apt-get install python2.7-dev python3-dev</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果缺少其他依赖, 尝试安装下述两个包</span><br><span class="line">sudo apt-get install libhdf5-dev</span><br><span class="line">sudo apt-get install libqt4-test</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载Opencv"><a href="#下载Opencv" class="headerlink" title="下载Opencv"></a>下载Opencv</h3><p>一个是Opencv的zip, 还有一个是Opencv_contrib的zip. 经过很多折腾和摸索, 最后发现4.1.0的版本在CMake时编译不会产生错误, 所以最后选择了4.1.0版本.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O opencv-4.1.0.zip https:&#x2F;&#x2F;github.com&#x2F;Itseez&#x2F;opencv&#x2F;archive&#x2F;4.1.0.zip</span><br><span class="line">wget -O opencv_contrib-4.1.0.zip https:&#x2F;&#x2F;github.com&#x2F;Itseez&#x2F;opencv_contrib&#x2F;archive&#x2F;4.1.0.zip</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置交换空间"><a href="#设置交换空间" class="headerlink" title="设置交换空间"></a>设置交换空间</h3><p>这个交换空间是在内存不够用的时候, 将磁盘空间充当内存空间的方法. 分配太多的Swap空间会浪费磁盘, 甚至对SD卡造成损坏且减少寿命, 一般设置在2G一下. 但是因为编译可能会占用很多的内存, 所以短时间增大Swap空间的大小是可以的.</p>
+<p><code>sudo nano /etc/dphys-swapfile</code>将<code>CONF_SWAPSIZE</code>改为2048</p>
+<p><code>sudo /etc/init.d/dphys-swapfile stop</code> </p>
+<p><code>sudo /etc/init.d/dphys-swapfile start</code></p>
+<p>这样才能重启交换服务.</p>
+<p><strong>千万不要忘记在安装完后把它改回来.</strong></p>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><p>对<code>opencv-4.1.0.zip</code>和<code>opencv_contrib-4.1.0.zip</code>两个文件进行解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip opencv_contrib-4.1.0.zip</span><br><span class="line">unzip opencv-4.1.0.zip</span><br></pre></td></tr></table></figure>
+
+<p>然后切换至``opencv-4.1.0<code>这个文件夹, 并在其下面新建编译文件准备存放的目录</code>build`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;opencv-4.1.0&#x2F;</span><br><span class="line">mkdir build &amp; cd build</span><br></pre></td></tr></table></figure>
+
+<p>然后开始进行编译的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -D ENABLE_PRECOMPILED_HEADERS&#x3D;OFF \ -D CMAKE_BUILD_TYPE&#x3D;RELEASE \ -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local \ -D INSTALL_PYTHON_EXAMPLES&#x3D;ON \ -D OPENCV_EXTRA_MODULES_PATH&#x3D;~&#x2F;opencv_contrib-4.1.0&#x2F;modules \ -D BUILD_EXAMPLES&#x3D;ON ..</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果遇到BUG<br><code>fatal error: opencv2/xfeatures2d/cuda.hpp: No such file or directory
+include “opencv2/xfeatures2d/cuda.hpp”</code></p>
+<p><strong>解决办法：</strong><br>在CMakeLists.txt增加以下内容：</p>
+<p><code>INCLUDE_DIRECTORIES(&quot;你的opencv_contrib路径/modules/xfeatures2d/include&quot;)</code></p>
+<p>CMakeLists.txt文件所在路径为：</p>
+<p><code>你的opencv路径/modules/stitching/CMakeLists.txt</code></p>
+</blockquote>
+<p>下面开始编译, 这个过程十分漫长, 可以加上参数<code>-j4</code>让四个线程同时跑, 如果对自己机器没有信心也可以不加, 编译失败的话可以尝试去掉<code>-j4</code>这个参数直接make. __请注意命令中的opencv_contrib-4.1.0文件夹的位置是否和解压的位置相符.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make -j4 </span><br><span class="line">make install </span><br><span class="line">make ldconfig</span><br></pre></td></tr></table></figure>
+
+<p>大功告成, 接下来就可以测试你的摄像头好不好使了.</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>打开<code>Thoony</code>, 以下是测试摄像头的代码, 如果没有摄像头只需要在终端里面进入python, 然后import cv2看看是否报错即可.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">cap.set(<span class="number">3</span>, <span class="number">640</span>)</span><br><span class="line">cap.set(<span class="number">4</span>, <span class="number">480</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>)</span><br><span class="line">	ret, frame = cap.read()</span><br><span class="line">    cv2.imshow(<span class="string">'frame'</span>, frame)</span><br><span class="line">    </span><br><span class="line">    k = cv2.waitKey(<span class="number">30</span>) &amp; <span class="number">0xff</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">27</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
 
             </div>
             <hr/>
@@ -496,7 +668,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ADAning.github.io/2020/07/22/hello-world/">https://ADAning.github.io/2020/07/22/hello-world/</a>
+                    <a href="https://ADAning.github.io/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/">https://ADAning.github.io/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -699,9 +871,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97/">
                     <div class="card-image">
@@ -721,9 +894,9 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -732,6 +905,7 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -739,7 +913,7 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/07/22/hello-world/">
@@ -769,7 +943,6 @@ SD卡+读卡器16/32/64GB都可以, 现在情况16和32的价格差
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
