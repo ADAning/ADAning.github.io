@@ -8,7 +8,7 @@
       <link href="/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/"/>
       <url>/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/</url>
       
-        <content type="html"><![CDATA[<h1 id="jsDelivr和minivaline一起使用"><a href="#jsDelivr和minivaline一起使用" class="headerlink" title="jsDelivr和minivaline一起使用"></a>jsDelivr和minivaline一起使用</h1><p>这个问题只有在使用<code>matery</code>时会遇到.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="jsDelivr和minivaline一起使用"><a href="#jsDelivr和minivaline一起使用" class="headerlink" title="jsDelivr和minivaline一起使用"></a>jsDelivr和minivaline一起使用</h1><p>这个问题只有在使用<code>matery1.31</code>及以下版本时会遇到. 作者虽然在主题的<code>_config.yml</code>中添加了<code>minivaline</code>这个js, 但是当同时启用<code>jsDelivr</code>时会发生地址拼接的错误, 导致跟评论相关的所有内容全部显示不出来. 本人是<strong>前端小白</strong>, 没有前端基础, 纯靠自己摸索, 所以本文是站在前端小白的视角去分析问题并解决的. 想看解决方法的可以直接看最后的<strong>修复</strong>部分.</p><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>直接去看<code>HTML</code>, 发现<code>minivaline</code>的script所用的地址变成了<strong>jsDelivr设置的地址 + <a href="https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js" target="_blank" rel="noopener">https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js</a></strong>. 直接就出现了地址拼接的错误.</p><h2 id="推测"><a href="#推测" class="headerlink" title="推测"></a>推测</h2><p>首先, 这个问题是出在matery里面的, 因为先在matery的配置文件进行修改, 启用<code>jsDelivr</code>后才出现的bug, 那么问题的范围一定在matery中. 并且<code>minivaline</code>也是matery新加入的插件, 不可能与Hexo框架本身有关.</p><p>直接看一下<code>blog\themes\hexo-theme-matery</code>下的文件结构:</p><blockquote><p>│  _config.yml<br>│<br>├─languages<br>│<br>├─layout<br>│  │<br>│  ├─_partial<br>│  └─_widget<br>│<br>└─source<br>   ├─css<br>   ├─js<br>   ├─libs<br>   └─medias</p></blockquote><p><code>languages</code>存放的是不同语言所对应博客文字的翻译, 嫌疑可以排除, <code>layout</code>肯定就是博客的布局, 因为涉及到显示位置, 可以从这里先开刀, 再慢慢找到问题,  <code>source</code>里面有各种前端本地配置, 最后肯定要对它进行修改.</p><p>既然问题出在评论上, 就先从<code>layout\contact.ejs</code>中找关于<code>minivaline</code>的部分. </p><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.valine</span> <span class="token attr-name">&amp;&amp;</span> <span class="token attr-name">theme.valine.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>&lt;%- partial('_partial/valine') %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.minivaline</span> <span class="token attr-name">&amp;&amp;</span> <span class="token attr-name">theme.minivaline.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>&lt;%- partial('_partial/minivaline') %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>果然能够找到关于<code>valine</code>和<code>minivaline</code>的对应代码. 它指向了<code>_partial</code>这个文件夹. 找到<code>_partial\minivaline.ejs</code>, 就能找到插入script的代码.</p><pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>js<span class="token punctuation">.</span>minivaline<span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>参照一下<code>-partial\valine.ejs</code>的同样对应的代码.</p><pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>js<span class="token punctuation">.</span>valine<span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>证明这部分没有问题. 那一定是里面配置的<code>theme.jsDelivr.url</code>或者后半部分的<code>url_for(theme.libs.js.minivaline)</code>出了问题.</p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>按照推测部分提供的线索去找, script里对应的部分一定是一个路径. 在主题下的<code>_config.yml</code>文件中, 找到<code>libs.js</code>端, 里面有对<code>minivaline</code>的引用, 会发现它是一个url而不是一个本地路径.</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">libs</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># ...</span>  <span class="token key atrule">js</span><span class="token punctuation">:</span>     <span class="token comment" spellcheck="true"># ...</span>    <span class="token key atrule">valine</span><span class="token punctuation">:</span> /libs/valine/Valine.min.js    <span class="token key atrule">minivaline</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>valine</code>和<code>minivaline</code>不一样.</p><h2 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h2><p>用最笨的办法, 假设你开了<code>jsDelivr</code>, <code>theme.jsDelivr.url</code>的值肯定是你设置的github.io的地址, <code>url_for(theme.libs.js.minivaline)</code>本来应该是上传到github之后的库的地址, 但是现在它的值是一个url, 只需要把前半部分删掉就能保证在开启jsDelivr时不出错了.</p><p>即更改<code>_partial\minivaline.ejs</code>中原来有问题的部分为:</p><pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">url_for(theme.libs.js.minivaline)</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript">"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>但是要考虑复用性, 总不能以后不使用jsDelivr后再把它换回来吧. 所以最好更改在主题下的<code>_config.yml</code>文件为本地文件路径:</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">minivaline</span><span class="token punctuation">:</span> /libs/minivaline/MiniValine.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在主题下<code>source\libs</code>下是没有<code>minivaline</code>这个库的, 但是却有<code>valine</code>. 所以只要搞一份这个库的js过来, 放到指定目录再部署, jsDelivr就能按照自己github上的文件地址访问到了. 从<code>博客目录\node_modules\minivaline\dist</code>下复制<code>MiniValine.min.js</code>到主题目录下的<code>source\libs\minivaline</code>中, 重新编译一遍, 再<strong>部署到github上</strong>, 就大功告成了.</p>]]></content>
       
       
       <categories>
@@ -51,9 +51,9 @@
             
             <tag> Hexo </tag>
             
-            <tag> matery </tag>
-            
             <tag> 博客搭建 </tag>
+            
+            <tag> matery </tag>
             
         </tags>
       
@@ -184,17 +184,6 @@
     
     
     <entry>
-      <title>contact</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -209,6 +198,17 @@
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>contact</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
