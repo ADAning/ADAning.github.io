@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MathJax和英文小括号的冲突, DaNing的博客">
+    <meta name="keywords" content="jsDelivr和minivaline一起使用, DaNing的博客">
     <meta name="description" content="DaNing的个人博客.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MathJax和英文小括号的冲突 | DaNing的博客</title>
+    <title>jsDelivr和minivaline一起使用 | DaNing的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/libs/awesome/css/all.css">
@@ -237,12 +237,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MathJax和英文小括号的冲突</h1>
+                    <h1 class="description center-align post-title">jsDelivr和minivaline一起使用</h1>
                 </div>
             </div>
         </div>
@@ -359,12 +359,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/Matery/">
+                                <span class="chip bg-color">Matery</span>
                             </a>
                         
-                            <a href="/tags/MathJax/">
-                                <span class="chip bg-color">MathJax</span>
+                            <a href="/tags/jsDelivr/">
+                                <span class="chip bg-color">jsDelivr</span>
+                            </a>
+                        
+                            <a href="/tags/minivaline/">
+                                <span class="chip bg-color">minivaline</span>
                             </a>
                         
                     </div>
@@ -375,8 +379,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                博客
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                博客搭建
                             </a>
                         
                     </div>
@@ -388,7 +392,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2020-07-24
                 </div>
                 
 
@@ -397,7 +401,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    373
+                    19
                 </div>
                 
 
@@ -419,22 +423,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MathJax和英文小括号的冲突"><a href="#MathJax和英文小括号的冲突" class="headerlink" title="MathJax和英文小括号的冲突"></a>MathJax和英文小括号的冲突</h1><p>如果你即使用了hexo也使用了MathJax, 那么有很大几率你会使用小括号来正常书写文章内容. </p>
-<p>譬如:</p>
-<p>This text is (in parenthesis) but it doesn’t work.</p>
-<p>它会显示成:</p>
-<p>This text is $in parenthesis$ but it doesn’t work.</p>
-<p>起初, 我一度认为是MathJax的大括号冲突导致了某个地方的小括号也出了同样的渲染问题, 但后来发现问题完全跑偏了. 这个真的卡了我挺长时间的… 很多地方都没有记载过这个问题. 直到我看到了关于MathJax3.0版本的配置问题, 才找到一段额外管理内联公式的script, 那么2.7是不是也应该有相应的一段呢?</p>
-<p>在<code>blog\themes\hexo-theme-matery\layout\post.ejs</code>中, 有这样一段代码, 是用来调整内联公式的识别方式的. 如果不添加这段js, Mathjax只能识别大的公式, 而不能识别内联公式. 很明显, 这里直接就将转义后的<code>()</code>小括号对也当做公式匹配范围了, 也就不难解释之前错误识别的情况.</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>mathjax<span class="token punctuation">.</span>enable <span class="token operator">&amp;&amp;</span> page<span class="token punctuation">.</span>mathjax<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"&lt;%- theme.mathjax.cdn %>"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-    MathJax<span class="token punctuation">.</span>Hub<span class="token punctuation">.</span><span class="token function">Config</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        tex2jax<span class="token punctuation">:</span> <span class="token punctuation">{</span>inlineMath<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'$'</span><span class="token punctuation">,</span> <span class="token string">'$'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'\('</span><span class="token punctuation">,</span> <span class="token string">'\)'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我们只要把<code>[&#39;\(&#39;, &#39;\)&#39;]</code>删去, 或者替换成更严格匹配的括号对<code>[&#39;\\(&#39;, &#39;\\)&#39;]</code>, 就能解决在博客markdown不能正确显示小括号内容的问题.</p>
+                <h1 id="jsDelivr和minivaline一起使用"><a href="#jsDelivr和minivaline一起使用" class="headerlink" title="jsDelivr和minivaline一起使用"></a>jsDelivr和minivaline一起使用</h1><p>这个问题只有在使用<code>matery</code>时会遇到.</p>
 
             </div>
             <hr/>
@@ -460,7 +449,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ADAning.github.io/2020/07/23/mathjax-he-ying-wen-xiao-gua-hao-de-chong-tu/">https://ADAning.github.io/2020/07/23/mathjax-he-ying-wen-xiao-gua-hao-de-chong-tu/</a>
+                    <a href="https://ADAning.github.io/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/">https://ADAning.github.io/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -498,12 +487,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/Matery/">
+                                    <span class="chip bg-color">Matery</span>
                                 </a>
                             
-                                <a href="/tags/MathJax/">
-                                    <span class="chip bg-color">MathJax</span>
+                                <a href="/tags/jsDelivr/">
+                                    <span class="chip bg-color">jsDelivr</span>
+                                </a>
+                            
+                                <a href="/tags/minivaline/">
+                                    <span class="chip bg-color">minivaline</span>
                                 </a>
                             
                         </div>
@@ -592,29 +585,92 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/23/hexo-github-page-de-bo-ke-da-jian/">
+                <a href="/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/Daning0/Images/raw/master/Other/20200723224120.png" class="responsive-img" alt="Hexo+Github Page的博客搭建">
                         
-                        <span class="card-title">Hexo+Github Page的博客搭建</span>
+                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="jsDelivr和minivaline一起使用">
+                        
+                        <span class="card-title">jsDelivr和minivaline一起使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hexo+Github Page 博客的搭建顺手搭了个博客, 之前一直想整, 但是没整, 感觉还是有个博客好一些, 可以方便自己记载一些东西, 我之前写过一些笔记都可以传上去了, 尤其是存一份云端备份.
-平台和框架选择博客框架的选择其实搭建
+                            jsDelivr和minivaline一起使用这个问题只有在使用matery时会遇到.
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                    博客搭建
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Matery/">
+                        <span class="chip bg-color">Matery</span>
+                    </a>
+                    
+                    <a href="/tags/jsDelivr/">
+                        <span class="chip bg-color">jsDelivr</span>
+                    </a>
+                    
+                    <a href="/tags/minivaline/">
+                        <span class="chip bg-color">minivaline</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/24/hexo-zhu-ti-xiu-gai/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo主题修改">
+                        
+                        <span class="card-title">Hexo主题修改</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hexo主题修改Hexo有很多漂亮的主题模板. 在它的官网主题页有很多好看的模板. 但是有一部分主题是没有显示在官网上的, 如果想看更多可以直接在Github上搜.
+推荐的主题我挑选了几个比较赏心悦目的模板, 在这列出来.
+Ayer
+极简风
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -634,58 +690,12 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/matery/">
+                        <span class="chip bg-color">matery</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/22/ji-suan-ji-wang-luo-xue-xiao/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络-学校">
-                        
-                        <span class="card-title">计算机网络-学校</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Computer NetworkAuthor: AnNingDate:  Before 2019.12.25
-Chapter 1 Computer Networks and the Internet (about 10%)1.1 What’
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    计算机知识
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">博客搭建</span>
                     </a>
                     
                 </div>
@@ -823,13 +833,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'],]}
-    });
-</script>
 
 
     <footer class="page-footer bg-color">

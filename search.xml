@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>jsDelivr和minivaline一起使用</title>
+      <link href="/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/"/>
+      <url>/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h1 id="jsDelivr和minivaline一起使用"><a href="#jsDelivr和minivaline一起使用" class="headerlink" title="jsDelivr和minivaline一起使用"></a>jsDelivr和minivaline一起使用</h1><p>这个问题只有在使用<code>matery</code>时会遇到.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Matery </tag>
+            
+            <tag> jsDelivr </tag>
+            
+            <tag> minivaline </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo主题修改</title>
       <link href="/2020/07/24/hexo-zhu-ti-xiu-gai/"/>
       <url>/2020/07/24/hexo-zhu-ti-xiu-gai/</url>
@@ -22,9 +51,9 @@
             
             <tag> Hexo </tag>
             
-            <tag> 博客搭建 </tag>
-            
             <tag> matery </tag>
+            
+            <tag> 博客搭建 </tag>
             
         </tags>
       
@@ -155,17 +184,6 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>contact</title>
       <link href="/contact/index.html"/>
       <url>/contact/index.html</url>
@@ -177,9 +195,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -191,6 +209,17 @@
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
