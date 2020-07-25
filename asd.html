@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jsDelivr和minivaline一起使用, DaNing的博客">
+    <meta name="keywords" content="DaNing的博客">
     <meta name="description" content="DaNing的个人博客.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jsDelivr和minivaline一起使用 | DaNing的博客</title>
+    <title>DaNing的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/libs/awesome/css/all.css">
@@ -237,12 +237,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jsDelivr和minivaline一起使用</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -357,33 +357,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Matery/">
-                                <span class="chip bg-color">Matery</span>
-                            </a>
-                        
-                            <a href="/tags/jsDelivr/">
-                                <span class="chip bg-color">jsDelivr</span>
-                            </a>
-                        
-                            <a href="/tags/minivaline/">
-                                <span class="chip bg-color">minivaline</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -392,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-24
+                    2020-07-25
                 </div>
                 
 
@@ -401,14 +380,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    896
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -423,41 +402,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="jsDelivr和minivaline一起使用"><a href="#jsDelivr和minivaline一起使用" class="headerlink" title="jsDelivr和minivaline一起使用"></a>jsDelivr和minivaline一起使用</h1><p>这个问题只有在使用<code>matery1.31</code>及以下版本时会遇到. 作者虽然在主题的<code>_config.yml</code>中添加了<code>minivaline</code>这个js, 但是当同时启用<code>jsDelivr</code>时会发生地址拼接的错误, 导致跟评论相关的所有内容全部显示不出来. 本人是<strong>前端小白</strong>, 没有前端基础, 纯靠自己摸索, 所以本文是站在前端小白的视角去分析问题并解决的. 想看解决方法的可以直接看最后的<strong>修复</strong>部分.</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>直接去看<code>HTML</code>, 发现<code>minivaline</code>的script所用的地址变成了<strong>jsDelivr设置的地址 + <a href="https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js" target="_blank" rel="noopener">https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js</a></strong>. 直接就出现了地址拼接的错误.</p>
-<h2 id="推测"><a href="#推测" class="headerlink" title="推测"></a>推测</h2><p>首先, 这个问题是出在matery里面的, 因为先在matery的配置文件进行修改, 启用<code>jsDelivr</code>后才出现的bug, 那么问题的范围一定在matery中. 并且<code>minivaline</code>也是matery新加入的插件, 不可能与Hexo框架本身有关.</p>
-<p>直接看一下<code>blog\themes\hexo-theme-matery</code>下的文件结构:</p>
-<blockquote>
-<p>│  _config.yml<br>│<br>├─languages<br>│<br>├─layout<br>│  │<br>│  ├─_partial<br>│  └─_widget<br>│<br>└─source<br>   ├─css<br>   ├─js<br>   ├─libs<br>   └─medias</p>
-</blockquote>
-<p><code>languages</code>存放的是不同语言所对应博客文字的翻译, 嫌疑可以排除, <code>layout</code>肯定就是博客的布局, 因为涉及到显示位置, 可以从这里先开刀, 再慢慢找到问题,  <code>source</code>里面有各种前端本地配置, 最后肯定要对它进行修改.</p>
-<p>既然问题出在评论上, 就先从<code>layout\contact.ejs</code>中找关于<code>minivaline</code>的部分. </p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.valine</span> <span class="token attr-name">&amp;&amp;</span> <span class="token attr-name">theme.valine.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
-&lt;%- partial('_partial/valine') %>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.minivaline</span> <span class="token attr-name">&amp;&amp;</span> <span class="token attr-name">theme.minivaline.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
-&lt;%- partial('_partial/minivaline') %>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>果然能够找到关于<code>valine</code>和<code>minivaline</code>的对应代码. 它指向了<code>_partial</code>这个文件夹. 找到<code>_partial\minivaline.ejs</code>, 就能找到插入script的代码.</p>
-<pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>js<span class="token punctuation">.</span>minivaline<span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>参照一下<code>-partial\valine.ejs</code>的同样对应的代码.</p>
-<pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>js<span class="token punctuation">.</span>valine<span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>证明这部分没有问题. 那一定是里面配置的<code>theme.jsDelivr.url</code>或者后半部分的<code>url_for(theme.libs.js.minivaline)</code>出了问题.</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>按照推测部分提供的线索去找, script里对应的部分一定是一个路径. 在主题下的<code>_config.yml</code>文件中, 找到<code>libs.js</code>端, 里面有对<code>minivaline</code>的引用, 会发现它是一个url而不是一个本地路径.</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">libs</span><span class="token punctuation">:</span>
-  <span class="token comment" spellcheck="true"># ...</span>
-  <span class="token key atrule">js</span><span class="token punctuation">:</span> 
-    <span class="token comment" spellcheck="true"># ...</span>
-    <span class="token key atrule">valine</span><span class="token punctuation">:</span> /libs/valine/Valine.min.js
-    <span class="token key atrule">minivaline</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>valine</code>和<code>minivaline</code>不一样.</p>
-<h2 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h2><p>用最笨的办法, 假设你开了<code>jsDelivr</code>, <code>theme.jsDelivr.url</code>的值肯定是你设置的github.io的地址, <code>url_for(theme.libs.js.minivaline)</code>本来应该是上传到github之后的库的地址, 但是现在它的值是一个url, 只需要把前半部分删掉就能保证在开启jsDelivr时不出错了.</p>
-<p>即更改<code>_partial\minivaline.ejs</code>中原来有问题的部分为:</p>
-<pre class="line-numbers language-html"><code class="language-html">&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">url_for(theme.libs.js.minivaline)</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript">"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>但是要考虑复用性, 总不能以后不使用jsDelivr后再把它换回来吧. 所以最好更改在主题下的<code>_config.yml</code>文件为本地文件路径:</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">minivaline</span><span class="token punctuation">:</span> /libs/minivaline/MiniValine.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在主题下<code>source\libs</code>下是没有<code>minivaline</code>这个库的, 但是却有<code>valine</code>. 所以只要搞一份这个库的js过来, 放到指定目录再部署, jsDelivr就能按照自己github上的文件地址访问到了. 从<code>博客目录\node_modules\minivaline\dist</code>下复制<code>MiniValine.min.js</code>到主题目录下的<code>source\libs\minivaline</code>中, 重新编译一遍, 再<strong>部署到github上</strong>, 就大功告成了.</p>
+                <pre class="line-numbers language-ejs"><code class="language-ejs"><% if (theme.socialLink.bilibili) { %>
+    <a href="<%= theme.socialLink.bilibili %>" class="tooltipped" target="_blank" data-tooltip="关注我的Bilibili: <%= theme.socialLink.bilibili %>" data-position="top" data-delay="50">
+        <i class="fas fa-bold"></i>
+    </a>
+<% } %><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -483,7 +432,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ADAning.github.io/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/">https://ADAning.github.io/2020/07/24/jsdelivr-he-minivaline-yi-qi-shi-yong/</a>
+                    <a href="https://ADAning.github.io/asd.html">https://ADAning.github.io/asd.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -520,19 +469,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Matery/">
-                                    <span class="chip bg-color">Matery</span>
-                                </a>
-                            
-                                <a href="/tags/jsDelivr/">
-                                    <span class="chip bg-color">jsDelivr</span>
-                                </a>
-                            
-                                <a href="/tags/minivaline/">
-                                    <span class="chip bg-color">minivaline</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -619,55 +556,44 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/25/shu-ju-ku-chang-jian-wen-ti-zheng-li/">
+                <a href="/asd.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="数据库常见问题整理">
+                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">数据库常见问题整理</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据库总体来说, 出现的频率很高但是问题问的不是很深, 并且内容少.
-数据库系统概述数据管理技术的发展主要经历三个阶段:人工管理阶段, 文件系统阶段, 数据库系统阶段. 
-数据库的完整性: 数据库的完整性是指防止数据库中存在不正确的数据. 
+                            
+    
+        
+    
+
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    计算机知识
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AnNing
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -675,59 +601,42 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/24/hexo-zhu-ti-xiu-gai/">
+                <a href="/asd.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo主题修改">
+                        <img src="https://cdn.jsdelivr.net/gh/ADAning/ADAning.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hexo主题修改</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hexo主题修改Hexo有很多漂亮的主题模板. 在它的官网主题页有很多好看的模板. 但是有一部分主题是没有显示在官网上的, 如果想看更多可以直接在Github上搜.
-推荐的主题我挑选了几个比较赏心悦目的模板, 在这列出来.
-Ayer
-极简风
+                            
+    
+        
+    
+
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AnNing
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
-                    <a href="/tags/matery/">
-                        <span class="chip bg-color">matery</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
