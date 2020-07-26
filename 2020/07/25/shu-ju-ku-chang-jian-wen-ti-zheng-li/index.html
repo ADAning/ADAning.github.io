@@ -490,7 +490,7 @@
 <p><strong>物理数据独立性</strong>: 更改模式/内模式映像</p>
 <p><strong>逻辑数据独立性</strong>: 更改外模式/模式映像</p>
 <p><strong>数据处理三阶段</strong>: 概念设计, 逻辑设计, 物理设计.</p>
-<img src="D:\ME\复习\数据库\三级模式两级映像.png" style="zoom:50%;" />
+<img src="https://gitee.com/Daning0/Images/raw/master/DB/三级模式两级映像.png" style="zoom:50%;" />
 
 <p><strong>概念模型(E - R模型)</strong>: 信息模型, 语言描述. </p>
 <p><strong>E - R模型三要素</strong>: 实体, 属性, 联系(一对一, 一对多, 多对多)</p>
@@ -512,7 +512,7 @@
 <p><strong>投影</strong>$\pi$: $\pi_A(R)$ 表示从R表中选名为A的列, 并去除重复元组.</p>
 <p><strong>连接</strong> $A\underset{C\theta D}⋈B$ : 连接符号下方添加C和D的关系条件, 表示从连接的结果中选出符合条件的元组.</p>
 <p><strong>自然连接</strong>$A⋈B$: 从两表中取相同属性列等值的元组, 并去掉重复列. </p>
-<p><img src="D:%5CME%5C%E5%A4%8D%E4%B9%A0%5C%E6%95%B0%E6%8D%AE%E5%BA%93%5C%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" alt=""></p>
+<p><img src="https://gitee.com/Daning0/Images/raw/master/DB/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" alt=""></p>
 <p><strong>自然连接和等值连接的区别?</strong></p>
 <p>自然连接中相等的分量必须是<strong>相同的属性组</strong>, 并且要在结果中<strong>去掉重复</strong>的属性, 而等值连接则不必.</p>
 <p><strong>外连接是什么?</strong></p>
@@ -668,7 +668,7 @@
 </ol>
 <p><strong>解决方案</strong>:</p>
 <p>在并发环境下, 事务的隔离性很难保证, 因此会出现很多并发一致性问题. 产生并发不一致性问题的主要原因是破坏了事务的隔离性. 解决方法是通过并发控制来保证隔离性, 并发控制可以通过封锁来实现. </p>
-<img src="D:\ME\复习\数据库\并发性.png" style="zoom:50%;" />
+<img src="https://gitee.com/Daning0/Images/raw/master/DB/并发性.png" style="zoom:50%;" />
 
 <h3 id="封锁机制"><a href="#封锁机制" class="headerlink" title="封锁机制"></a>封锁机制</h3><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><p>锁是最常用的并发控制机构, 是防止其他事务访问指定资源, 实现并发控制的一种手段. </p>
 <p><strong>共享锁(S锁)</strong>: 用于只读操作(SELECT), 锁定共享的资源. 共享锁不会阻止其他用户读, 但是阻止其他的用户写和修改. </p>
