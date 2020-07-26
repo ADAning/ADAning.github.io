@@ -1,33 +1,4 @@
-<!doctype html>
-
-<title>CodeMirror: Tornado template mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
-
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/mode/overlay.js"></script>
-<script src="../xml/xml.js"></script>
-<script src="../htmlmixed/htmlmixed.js"></script>
-<script src="tornado.js"></script>
-<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
-
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/marijnh/codemirror" target="_blank" rel="noopener">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Tornado</a>
-  </ul>
-</div>
-
-<article>
-<h2>Tornado template mode</h2>
-<form><textarea id="code" name="code">
+<!doctype html><title>CodeMirror: Tornado template mode</title><meta charset="utf-8"><link rel="stylesheet" href="../../doc/docs.css"><link rel="stylesheet" href="../../lib/codemirror.css"><script src="../../lib/codemirror.js"></script><script src="../../addon/mode/overlay.js"></script><script src="../xml/xml.js"></script><script src="../htmlmixed/htmlmixed.js"></script><script src="tornado.js"></script><style type="text/css">.CodeMirror{border-top:1px solid #000;border-bottom:1px solid #000}</style><div id="nav"><a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a><ul><li><a href="../../index.html">Home</a></li><li><a href="../../doc/manual.html">Manual</a></li><li><a href="https://github.com/marijnh/codemirror" target="_blank" rel="noopener">Code</a></li></ul><ul><li><a href="../index.html">Language modes</a></li><li><a class="active" href="#">Tornado</a></li></ul></div><article><h2>Tornado template mode</h2><form><textarea id="code" name="code">
 <!doctype html>
 <html>
     <head>
@@ -45,20 +16,6 @@
                 <li>You have no items in your list.</li>
             {% end %}
         </ul>
-    </body>
+    <script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=r[a].getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+360||document.documentElement.clientHeight+360)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body>
 </html>
-</textarea></form>
-
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers: true,
-        mode: "tornado",
-        indentUnit: 4,
-        indentWithTabs: true
-      });
-    </script>
-
-    <p>Mode for HTML with embedded Tornado template markup.</p>
-
-    <p><strong>MIME types defined:</strong> <code>text/x-tornado</code></p>
-  </article>
+</textarea></form><script>var editor=CodeMirror.fromTextArea(document.getElementById("code"),{lineNumbers:!0,mode:"tornado",indentUnit:4,indentWithTabs:!0})</script><p>Mode for HTML with embedded Tornado template markup.</p><p><strong>MIME types defined:</strong> <code>text/x-tornado</code></p></article>

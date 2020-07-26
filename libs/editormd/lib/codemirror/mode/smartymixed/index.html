@@ -1,34 +1,4 @@
-<!doctype html>
-
-<title>CodeMirror: Smarty mixed mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
-
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../mode/xml/xml.js"></script>
-<script src="../../mode/javascript/javascript.js"></script>
-<script src="../../mode/css/css.js"></script>
-<script src="../../mode/htmlmixed/htmlmixed.js"></script>
-<script src="../../mode/smarty/smarty.js"></script>
-<script src="../../mode/smartymixed/smartymixed.js"></script>
-<div id=nav>
-  <a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
-
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Smarty mixed</a>
-  </ul>
-</div>
-
-<article>
-<h2>Smarty mixed mode</h2>
-<form><textarea id="code" name="code">
+<!doctype html><title>CodeMirror: Smarty mixed mode</title><meta charset="utf-8"><link rel="stylesheet" href="../../doc/docs.css"><link rel="stylesheet" href="../../lib/codemirror.css"><script src="../../lib/codemirror.js"></script><script src="../../mode/xml/xml.js"></script><script src="../../mode/javascript/javascript.js"></script><script src="../../mode/css/css.js"></script><script src="../../mode/htmlmixed/htmlmixed.js"></script><script src="../../mode/smarty/smarty.js"></script><script src="../../mode/smartymixed/smartymixed.js"></script><div id="nav"><a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a><ul><li><a href="../../index.html">Home</a></li><li><a href="../../doc/manual.html">Manual</a></li><li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a></li></ul><ul><li><a href="../index.html">Language modes</a></li><li><a class="active" href="#">Smarty mixed</a></li></ul></div><article><h2>Smarty mixed mode</h2><form><textarea id="code" name="code">
 {**
 * @brief Smarty mixed mode
 * @author Ruslan Osmanov
@@ -45,23 +15,8 @@
   *}
   {literal}
   {literal} is just an HTML text.
-  <script type="text/javascript">//<![CDATA[
-    var a = {$just_a_normal_js_object : "value"};
-    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code"), {
-      mode           : "smartymixed",
-      tabSize        : 2,
-      indentUnit     : 2,
-      indentWithTabs : false,
-      lineNumbers    : true,
-      smartyVersion  : 3
-    });
-    // ]]>
-  </script>
-  <style>
-    /* CSS content 
-    {$no_smarty} */
-    .some-class { font-weight: bolder; color: "orange"; }
-  </style>
+  <script type="text/javascript">var a={$just_a_normal_js_object:"value"},myCodeMirror=CodeMirror.fromTextArea(document.getElementById("code"),{mode:"smartymixed",tabSize:2,indentUnit:2,indentWithTabs:!1,lineNumbers:!0,smartyVersion:3})</script>
+  <style>.some-class{font-weight:bolder;color:orange}</style>
   {/literal}
 
   {extends file="parent.tpl"}
@@ -89,27 +44,7 @@
     {/foreach}
     {/function}
   {/if}
-  </body>
-  <!-- R.O. -->
+  <script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=r[a].getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+360||document.documentElement.clientHeight+360)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body>
+  
 </html>
-</textarea></form>
-
-    <script type="text/javascript">
-      var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode           : "smartymixed",
-        tabSize        : 2,
-        indentUnit     : 2,
-        indentWithTabs : false,
-        lineNumbers    : true,
-        smartyVersion  : 3,
-        matchBrackets  : true,
-      });
-    </script>
-
-    <p>The Smarty mixed mode depends on the Smarty and HTML mixed modes. HTML
-    mixed mode itself depends on XML, JavaScript, and CSS modes.</p>
-
-    <p>It takes the same options, as Smarty and HTML mixed modes.</p>
-
-    <p><strong>MIME types defined:</strong> <code>text/x-smarty</code>.</p>
-  </article>
+</textarea></form><script type="text/javascript">var myCodeMirror=CodeMirror.fromTextArea(document.getElementById("code"),{mode:"smartymixed",tabSize:2,indentUnit:2,indentWithTabs:!1,lineNumbers:!0,smartyVersion:3,matchBrackets:!0})</script><p>The Smarty mixed mode depends on the Smarty and HTML mixed modes. HTML mixed mode itself depends on XML, JavaScript, and CSS modes.</p><p>It takes the same options, as Smarty and HTML mixed modes.</p><p><strong>MIME types defined:</strong> <code>text/x-smarty</code>.</p></article>

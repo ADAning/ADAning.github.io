@@ -1,36 +1,4 @@
-<!doctype html>
-
-<title>CodeMirror: Diff mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
-
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="diff.js"></script>
-<style>
-      .CodeMirror {border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
-      span.cm-meta {color: #a0b !important;}
-      span.cm-error { background-color: black; opacity: 0.4;}
-      span.cm-error.cm-string { background-color: red; }
-      span.cm-error.cm-tag { background-color: #2b2; }
-    </style>
-<div id=nav>
-  <a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
-
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Diff</a>
-  </ul>
-</div>
-
-<article>
-<h2>Diff mode</h2>
-<form><textarea id="code" name="code">
+<!doctype html><title>CodeMirror: Diff mode</title><meta charset="utf-8"><link rel="stylesheet" href="../../doc/docs.css"><link rel="stylesheet" href="../../lib/codemirror.css"><script src="../../lib/codemirror.js"></script><script src="diff.js"></script><style>.CodeMirror{border-top:1px solid #ddd;border-bottom:1px solid #ddd}span.cm-meta{color:#a0b!important}span.cm-error{background-color:#000;opacity:.4}span.cm-error.cm-string{background-color:red}span.cm-error.cm-tag{background-color:#2b2}</style><div id="nav"><a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a><ul><li><a href="../../index.html">Home</a></li><li><a href="../../doc/manual.html">Manual</a></li><li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a></li></ul><ul><li><a href="../index.html">Language modes</a></li><li><a class="active" href="#">Diff</a></li></ul></div><article><h2>Diff mode</h2><form><textarea id="code" name="code">
 diff --git a/index.html b/index.html
 index c1d9156..7764744 100644
 --- a/index.html
@@ -44,7 +12,7 @@ index c1d9156..7764744 100644
 +      onGutterClick: function(x){console.log(x);}
        });
      </script>
-   </body>
+   <script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=r[a].getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+360||document.documentElement.clientHeight+360)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script>
 diff --git a/lib/codemirror.js b/lib/codemirror.js
 index 04646a9..9a39cc7 100644
 --- a/lib/codemirror.js
@@ -107,11 +75,4 @@ index 04646a9..9a39cc7 100644
      autoMatchBrackets: false,
      workTime: 200,
      workDelay: 300,
-</textarea></form>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {});
-    </script>
-
-    <p><strong>MIME types defined:</strong> <code>text/x-diff</code>.</p>
-
-  </article>
+</textarea></form><script>var editor=CodeMirror.fromTextArea(document.getElementById("code"),{})</script><p><strong>MIME types defined:</strong> <code>text/x-diff</code>.</p></article>

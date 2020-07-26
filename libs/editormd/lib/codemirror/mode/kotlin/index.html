@@ -1,32 +1,4 @@
-<!doctype html>
-
-<title>CodeMirror: Kotlin mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
-
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="kotlin.js"></script>
-<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
-
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Kotlin</a>
-  </ul>
-</div>
-
-<article>
-<h2>Kotlin mode</h2>
-
-
-<div><textarea id="code" name="code">
+<!doctype html><title>CodeMirror: Kotlin mode</title><meta charset="utf-8"><link rel="stylesheet" href="../../doc/docs.css"><link rel="stylesheet" href="../../lib/codemirror.css"><script src="../../lib/codemirror.js"></script><script src="kotlin.js"></script><style type="text/css">.CodeMirror{border-top:1px solid #000;border-bottom:1px solid #000}</style><div id="nav"><a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a><ul><li><a href="../../index.html">Home</a></li><li><a href="../../doc/manual.html">Manual</a></li><li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a></li></ul><ul><li><a href="../index.html">Language modes</a></li><li><a class="active" href="#">Kotlin</a></li></ul></div><article><h2>Kotlin mode</h2><div><textarea id="code" name="code">
 package org.wasabi.http
 
 import java.util.concurrent.Executors
@@ -52,7 +24,7 @@ public class HttpServer(private val appServer: AppServer) {
         bootstrap = ServerBootstrap()
 
         bootstrap.group(primaryGroup, workerGroup)
-        bootstrap.channel(javaClass<NioServerSocketChannel>())
+        bootstrap.channel(javaClass<nioserversocketchannel>())
         bootstrap.childHandler(NettyPipelineInitializer(appServer))
     }
 
@@ -74,16 +46,4 @@ public class HttpServer(private val appServer: AppServer) {
         workerGroup.terminationFuture().sync()
     }
 }
-</textarea></div>
-
-    <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-            mode: {name: "kotlin"},
-            lineNumbers: true,
-            indentUnit: 4
-        });
-    </script>
-    <h3>Mode for Kotlin (http://kotlin.jetbrains.org/)</h3>
-    <p>Developed by Hadi Hariri (https://github.com/hhariri).</p>
-    <p><strong>MIME type defined:</strong> <code>text/x-kotlin</code>.</p>
-</article>
+</nioserversocketchannel></textarea></div><script>var editor=CodeMirror.fromTextArea(document.getElementById("code"),{mode:{name:"kotlin"},lineNumbers:!0,indentUnit:4})</script><h3>Mode for Kotlin (http://kotlin.jetbrains.org/)</h3><p>Developed by Hadi Hariri (https://github.com/hhariri).</p><p><strong>MIME type defined:</strong> <code>text/x-kotlin</code>.</p></article>

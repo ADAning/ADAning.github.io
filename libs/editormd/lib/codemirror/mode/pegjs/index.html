@@ -1,35 +1,5 @@
-<!doctype html>
-<html>
-  <head>
-    <title>CodeMirror: PEG.js Mode</title>
-    <meta charset="utf-8"/>
-    <link rel=stylesheet href="../../doc/docs.css">
-
-    <link rel="stylesheet" href="../../lib/codemirror.css">
-    <script src="../../lib/codemirror.js"></script>
-    <script src="../javascript/javascript.js"></script>
-    <script src="pegjs.js"></script>
-    <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-  <meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-  <body>
-    <div id=nav>
-      <a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
-
-      <ul>
-        <li><a href="../../index.html">Home</a>
-        <li><a href="../../doc/manual.html">Manual</a>
-        <li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a>
-      </ul>
-      <ul>
-        <li><a href="../index.html">Language modes</a>
-        <li><a class=active href="#">PEG.js Mode</a>
-      </ul>
-    </div>
-
-    <article>
-      <h2>PEG.js Mode</h2>
-      <form><textarea id="code" name="code">
+<!doctype html><html><head><title>CodeMirror: PEG.js Mode</title><meta charset="utf-8"><link rel="stylesheet" href="../../doc/docs.css"><link rel="stylesheet" href="../../lib/codemirror.css"><script src="../../lib/codemirror.js"></script><script src="../javascript/javascript.js"></script><script src="pegjs.js"></script><style type="text/css">.CodeMirror{border-top:1px solid #000;border-bottom:1px solid #000}</style><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="nav"><a href="http://codemirror.net" target="_blank" rel="noopener"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a><ul><li><a href="../../index.html">Home</a></li><li><a href="../../doc/manual.html">Manual</a></li><li><a href="https://github.com/codemirror/codemirror" target="_blank" rel="noopener">Code</a></li></ul><ul><li><a href="../index.html">Language modes</a></li><li><a class="active" href="#">PEG.js Mode</a></li></ul></div><article><h2>PEG.js Mode</h2><form><textarea id="code" name="code">
 /*
  * Classic example grammar, which recognizes simple arithmetic expressions like
  * "2*(3+4)". The parser generated from this grammar then computes their value.
@@ -53,15 +23,4 @@ primary
 integer "integer"
   = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
 
-letter = [a-z]+</textarea></form>
-      <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-          mode: {name: "pegjs"},
-          lineNumbers: true
-        });
-      </script>
-      <h3>The PEG.js Mode</h3>
-      <p> Created by Forbes Lindesay.</p>
-    </article>
-  </body>
-</html>
+letter = [a-z]+</textarea></form><script>var editor=CodeMirror.fromTextArea(document.getElementById("code"),{mode:{name:"pegjs"},lineNumbers:!0})</script><h3>The PEG.js Mode</h3><p>Created by Forbes Lindesay.</p></article><script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=r[a].getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+360||document.documentElement.clientHeight+360)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body></html>
