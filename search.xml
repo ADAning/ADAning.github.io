@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>神经网络小记</title>
+      <link href="/posts/50630.html"/>
+      <url>/posts/50630.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="神经网络小记"><a href="#神经网络小记" class="headerlink" title="神经网络小记"></a>神经网络小记</h1><p>在本文中的神经网络是指的<strong>深度神经网络 Deep Neural Network</strong>. 进入到深度学习领域后, 除去DL计算量大, 参数多的特点外, 还会发现深度学习中有一个很大的特点: 不需要特征工程. 特征提取直接由模型自动端到端的完成. DL大多是用仿生学的结构, 来获得信息的新的表示, 所以我们也常说, <strong>深度学习的本质是表示学习</strong>. 在错杂的神经网络结构中, 对数据进行非线性拟合. 由于其结构的复杂性, DL也<strong>没有很好的解释性</strong>, 但是研究人员常常将其逐步拆开, 发现其中的规律, 看看神经网络究竟学习到了什么.</p><h2 id="神经元-Neuron"><a href="#神经元-Neuron" class="headerlink" title="神经元 Neuron"></a>神经元 Neuron</h2><p>神经元的概念这个比较简单, 神经网络是由神经元构成的. 一定都看过一张类似的图:</p><p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/DNN.png" alt=""></p><p>这就是神经网络的结构, 两端的分别称为输入层和输出层, 中间的称为隐藏层. 最左侧的输入层大小与输入的特征维数是保持一致的. 最右侧的输出层大小与输出的维数保持一致, 如果任务是分类任务, 输出层的神经元个数就是要分类的类别数, 预测的是归属于每类的类别概率. 如果是回归任务, 最后一层的神经元只有一个, 预测的是回归值. </p><p>每个神经元开始只是做最简单的线性回归. 对于上一层神经元的输入矩阵$X^{(l-1)}$, 第$l$层每个神经元, 都有一个权重$w_{ij}$, 共用一个偏置$b$, 所以它们构成权重矩阵$W^{(l)}$, 对于每个输入所对应的输出为:<br>$$<br>Y^{(l)} = W^{(l)}X^{(l-1)} +b^{(l)}<br>$$<br>如果只是这样, 神经网络不论有多少层, 输入输出都是线性的, 加不加隐藏层都一样, 是无法拟合非线性关系的. 这时候必须加入一些非线性元素使得神经网络具有非线性拟合的能力. </p><h2 id="激活函数-Activation-Function"><a href="#激活函数-Activation-Function" class="headerlink" title="激活函数 Activation Function"></a>激活函数 Activation Function</h2><p>激活函数是作用在神经元输出上的<strong>非线性函数</strong>, 最开始是被单独作为一个神经层而存在的, 后来被集成到神经元身上. 它使得神经网络具有了逼近任意函数的潜力, 只要神经元够多, 数据足够健壮, 那么它可以拟合任意的情况. 激活函数常用的只有几种, 现在最常见的是<code>Relu</code>, 解决了梯度爆炸和梯度消失的难题(后面提到). 在有了激活函数$f(x)$后, 每个神经元的输出变为了:<br>$$<br>Y^{(l)} = f(W^{(l)}X^{(l-1)} + B^{(i)})<br>$$</p><h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><p>它是早期很常见的激活函数, 但是因为存在一些缺陷, 近些年使用的人数越来越少. 公式如下:<br>$$<br>\sigma(x) = \frac{1}{1+e^{-x}}<br>$$<br>这个函数的导数很好求. 并且它能够将任意的输入都放缩到$[0, 1]$的区间内.<br>$$<br>\sigma’(x) = \sigma(x)(1-f(x))<br>$$<br><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/sigmoid.png" style="zoom: 33%;" /></p><p>它的缺点也很明显, 当输入过大或过小时, 所对应的的导数近乎为0, 这种现象称为梯度消失. 这对于之后梯度下降的链式求导是极为不利的. 因为我们对神经网络的权值初始化范围在$[0, 1]$之间, 当发生反向传播时, 如果隐藏层特别多, 就很容易发生梯度消失, 使链式求导趋于0. 还有一个问题就是, <code>Sigmoid</code>每次输出的数据都不是Zero-centered, 其输出值全是正数, 会在收敛的路上越走越远, 导致收敛慢.</p><h3 id="Tanh"><a href="#Tanh" class="headerlink" title="Tanh"></a>Tanh</h3><p>Tanh不是很了解, 但是现在用在NLP里很多(RNN经常用).<br>$$<br>tanh(x) =\frac{e^x-e^{-x}}{e^x+e^{-x}} \<br>tanh’(x) = 1-tanh^2(x)<br>$$<br><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/tanh.png" style="zoom:33%;" /></p><h3 id="Relu"><a href="#Relu" class="headerlink" title="Relu"></a>Relu</h3><p>为了改善梯度消失和梯度爆炸的问题, 计算也非常简单. 当时的<code>Relu</code>是非常具有统治力的(现在也是).<br>$$<br>ReLu(x) = max(0, x)<br>$$<br>其实就是一个取最大值的函数, 如果输入是负数直接取0. 不是全区间可导, 但是可以取次梯度.</p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/relu.jpg" style="zoom: 33%;" /><p>它的优点就是收敛快, 在输入大于0的情况下, 导数恒为1, 改善了梯度消失问题. 但是<code>Relu​</code>的输出同样不是Zero-centered. 而且还有可能会造成<code>Dead neuron</code>. 因为有些输入是小于0的, 或者有些节点因为不幸的初始化或者Learning rate设的太大, 导致整个权重矩阵的分布发生变化, 若矩阵分布中心在负区域, 则负输入的梯度为0, 导致神经元可能永远不被更新. </p><p>基于这个问题, 人们提出了许多别的解决方案, 都是在负输入上做一些手脚. 比如说LeakyRelu, 在负输入区域上的值就不全为零, 而是用一个可以调整的参数$\alpha$(通常取0.01)乘上输入.即:<br>$$<br>LeakyReLu(x)=max(\alpha x, x)<br>$$<br>参数$\alpha$可以通过反向传播学习到. 理论上来说<code>LeakyRelu</code>会继承<code>Relu</code>的所有优点, 并改善它的缺点. 但是实际上并没有相关实验证明它会在所有情况下比Relu好.</p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/leakyrelu.png" style="zoom:33%;" /><h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><p>在处理多分类问题时, 最后一层上会使用<code>Softmax</code>函数作为激活函数. <code>Softmax</code>保证了最后神经元输出是以概率形式输出. 对于分$C$类的问题, 最后一层第$i$个神经元在未激活的情况下的输出$y_i$, 有:<br>$$<br>Softmax(y_i) = \frac{e^i}{\sum\limits_i^Ce^i}<br>$$</p><h2 id="反向传播BP-Back-Propagation"><a href="#反向传播BP-Back-Propagation" class="headerlink" title="反向传播BP Back Propagation"></a>反向传播BP Back Propagation</h2><p>深度神经网络也被称为BP神经网络, 就是指的反向传播. 反向传播可以说是神经网络中最重要的部分之一了. 这种方式告诉我们如何调整神经元的相关权重. 首先, BP是基于梯度下降来调整权重的. 对于第$l$层, 第$i$个神经元对下一层第$j$个神经的权重$w_{ij}$, 损失函数为$E$, 人为设定学习率$\eta$ , 更新$w_{ij}$有:<br>$$<br>w^{(l)}<em>{ij} = w^{(l)}</em>{ij} - \eta \frac{\partial E(W, b)}{\partial w^{(l)}_{ij}}<br>$$<br>对于每层的偏置$b^{(l)}$ 同理. 这其中涉及到链式求导, 因为在计算时, 是通过输出层的最终复合函数逐渐向输入层求导, 所以就叫反向传播.</p><h2 id="随机失活-Dropout"><a href="#随机失活-Dropout" class="headerlink" title="随机失活 Dropout"></a>随机失活 Dropout</h2><p>当某些神经元过于强势时, 导致其他某些神经元会不被得到训练, 从而增大过拟合的几率, 当强大神经元对应输入的部分数据出现问题时, 就会出现单点故障. 所以需要一个方法使得其他神经元也得到训练, 并避免某些神经元过于强大. 此时, 采用神经元的随机失活策略, 使得每个神经元在训练时都有一定的概率权重不被更新, 能够保证绝大多数的神经元都处于活跃状态.</p><p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/20200728154954.png" alt=""></p><h2 id="参数计算"><a href="#参数计算" class="headerlink" title="参数计算"></a>参数计算</h2><p>DNN的参数计算比较简单, 假设第$l$层有$m$个神经元, 第$l+1$层有$n$个神经元, 那么$l$层的每个神经元都对应$l+1$层的$n$个权重, 外加一个偏置$b$, 第$l$层需训练的参数个数是$m\times n + 1$.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>操作系统常见问题整理</title>
       <link href="/posts/57255.html"/>
       <url>/posts/57255.html</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> 面试 </tag>
-            
             <tag> 操作系统 </tag>
+            
+            <tag> 面试 </tag>
             
         </tags>
       
@@ -130,9 +157,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> 面试 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -294,9 +321,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> 选购指南 </tag>
             
@@ -343,9 +370,9 @@
     
     
     <entry>
-      <title>markdown</title>
-      <link href="/markdown/index.html"/>
-      <url>/markdown/index.html</url>
+      <title>留言板</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -354,9 +381,9 @@
     
     
     <entry>
-      <title>留言板</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
+      <title>markdown</title>
+      <link href="/markdown/index.html"/>
+      <url>/markdown/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
