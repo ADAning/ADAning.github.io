@@ -12,7 +12,7 @@ index c1d9156..7764744 100644
 +      onGutterClick: function(x){console.log(x);}
        });
      </script>
-   <script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=r[a].getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+360||document.documentElement.clientHeight+360)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script>
+   
 diff --git a/lib/codemirror.js b/lib/codemirror.js
 index 04646a9..9a39cc7 100644
 --- a/lib/codemirror.js
