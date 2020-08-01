@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>机器学习之损失函数</title>
+      <link href="/posts/49440.html"/>
+      <url>/posts/49440.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="损失函数-Loss-function"><a href="#损失函数-Loss-function" class="headerlink" title="损失函数 Loss function"></a>损失函数 Loss function</h1><p>损失函数是用来度量模型当前预测状况与损失目标的差距的函数.</p><h2 id="均方误差-MSE"><a href="#均方误差-MSE" class="headerlink" title="均方误差 MSE"></a>均方误差 MSE</h2><p>也称为平方损失, L2损失, 均方误差(Mean Squared error). 有时候人们也直接将其开根号称为RMSE, 这样能更好的反映出模型和真实值之间的差异, 以至于不像MSE看起来的那么大. <strong>有时候分母上多挂个2是为了求导方便</strong>.<br>$$<br>MSE = \frac{\sum\limits_{i=1}^n(y_i-\hat{y_i})^2}{n}<br>$$</p><h2 id="平均绝对值误差-MAE"><a href="#平均绝对值误差-MAE" class="headerlink" title="平均绝对值误差 MAE"></a>平均绝对值误差 MAE</h2><p>平均绝对值误差(Mean Absolute Error) 也称之为L1损失, 是另一种损失函数, 它表示预测值的平均误差幅度而不考虑误差的方向.<br>$$<br>MAE = \frac{\sum \limits_{i=1}^n \left| y_i-\hat{y_i}\right|}{n}<br>$$<br>当训练数据中含有较多的异常值时MAE更为有效. 当我们对所有观测值进行处理时, 如果利用MSE进行优化则我们会得到所有观测的均值, 而使用MAE则能得到所有观测的中值. 与均值相比, 中值对于异常值的鲁棒性更好, 这就意味着平均绝对误差对于异常值有着比均方误差更好的鲁棒性. 但是MAE它的梯度在极值点处会有很大的跃变, 所以<strong>不利于梯度下降相关算法</strong>. MSE却能很好的收敛.</p><h2 id="R2-score"><a href="#R2-score" class="headerlink" title="R2 score"></a>R2 score</h2><p>$R^2\ score$ 也称为决定系数, 越大越好, 解决了不同量纲下模型的效果好坏.<br>$$<br>R^2 \ score = 1 - \frac{\sum \limits_{i=1}^n (y_i-\hat{y_i})^2}{\sum \limits_{i=1}^n (y_i-\bar{y_i})^2} = 1 - \frac{\sum \limits_{i=1}^n (y_i-\hat{y_i})^2 / n}{\sum \limits_{i=1}^n (y_i-\bar{y_i})^2/ n} = 1 - \frac{MSE}{Var}<br>$$<br>第二项的分子代表我们实际作出的回归曲线和真实值之间的均方误差, 分母代表了在所有样本中取平均所获得的均方误差, 回归曲线越好, 那么二者之间的比值就越小, $R^2\ score$也就越趋近于1.</p><h2 id="交叉熵-Cross-Entropy"><a href="#交叉熵-Cross-Entropy" class="headerlink" title="交叉熵 Cross Entropy"></a>交叉熵 Cross Entropy</h2><p>其实大多数情况下, 在<strong>分类问题</strong>中使用的损失函数是交叉熵. 很明显上述几种损失函数对于一个分类问题来说, 都不是好的损失函数. 而交叉熵从信息的角度, 从概率入手, 很好的衡量模型的损失. 熵本身就是系统混乱度的度量, 熵越大, 则代表信息的不确定性越大. 在这里, 熵越大, 则代表模型预测的结果越差, 也就是损失值越大. 因为伴随着概率, 所以二分类交叉熵经常伴随<code>sigmoid</code>, 多分类伴随<code>softmax</code>, 这两个函数能将神经网络的输出映射到概率范围内.</p><h3 id="二分类交叉熵"><a href="#二分类交叉熵" class="headerlink" title="二分类交叉熵"></a>二分类交叉熵</h3><p>假设$y_i$是预测样本$i$的实际概率(或者说标签), $p_i$是$i$个样本的类别预测概率, 则有:<br>$$<br>Entropy = -\sum^m_{i=1}y_i\log{(1-p_i)} + (1-y_i)\log {p_i}<br>$$<br>加入负号是为了保证熵为正, 能够让它的规律符合损失函数.</p><h3 id="多分类交叉熵"><a href="#多分类交叉熵" class="headerlink" title="多分类交叉熵"></a>多分类交叉熵</h3><p>多分类就是将二分类扩展到一般情况. 共有$m$个类, $n$个样本, $y_{ij}$是第$i$个样本对应第$j$个类别的标签, $p_{ij}$是第$i$个样本对应第$j$个类别的预测概率.<br>$$<br>Entropy = -\sum^n_{i=1}\sum^m_{j=1}y_{ij}\log {p_{ij}}<br>$$</p><h2 id="正则化-Regularization"><a href="#正则化-Regularization" class="headerlink" title="正则化 Regularization"></a>正则化 Regularization</h2><p>正则化也可以看做是损失函数的惩罚项. 正则化是对模型优化方向加以限制, 在损失函数后面添加的项. 这样在计算损失函数时, 也会将人为优化的方向考虑进去. 如果模型没有朝着人们想要的方向发展, 会导致损失很高, 模型则不会向着该方向更新. 对于原来的损失函数$E(w; X, y)$ 和仅与权重相关的正则项$\Omega(w)$, 正则项超参数$\alpha$, 新的损失函数$E_r(w; X, y)$:<br>$$<br>E_r(w; X, y)=E(w; X, y) + \alpha\Omega(w)<br>$$</p><h3 id="L1正则化-L1-Regularization"><a href="#L1正则化-L1-Regularization" class="headerlink" title="L1正则化 L1 Regularization"></a>L1正则化 L1 Regularization</h3><p>使用L1正则化的模型也叫作Lasso回归模型. L1正则化是将模型权重的个向量绝对值之和加到一起. 这样模型自动的将不重要的特征系数变小, 逐渐趋于0. 因此L1正则化可以产生稀疏权值矩阵, 即产生一个稀疏模型, 用于特征选择.<br>$$<br>\Omega(w)=\sum_i^W|w_i|<br>$$<br>相比于后面提到的L2正则化来说, L1具有更好的鲁棒性, 当出现异常值时, 异常值不会被放大. 但L1因为含有绝对值, 非常难以计算.</p><h4 id="L1正则化为什么易于产生稀疏解"><a href="#L1正则化为什么易于产生稀疏解" class="headerlink" title="L1正则化为什么易于产生稀疏解?"></a>L1正则化为什么易于产生稀疏解?</h4><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/L1正则化.jpg" style="zoom: 67%;" /><p>在寻找最优解时, L1正则由于是权重的绝对值, 做出的图像如图中的正方形所示, 更容易在某方向权重为0时找到解, 所以能够将整个权重矩阵稀疏化.而且L1的导数因带有绝对值而容易发生突变, 所以在0处时取到极小值的几率很大. 或者说L1因为涉及绝对值, 如果想最小化惩罚, 就是让对应的$w_i$取0.</p><h3 id="L2正则化-L2-Regularization"><a href="#L2正则化-L2-Regularization" class="headerlink" title="L2正则化 L2 Regularization"></a>L2正则化 L2 Regularization</h3><p>使用L2正则化的模型也叫作Ridge回归模型(岭回归模型). L2具有更均匀的输出. 也非常便于计算.<br>$$<br>\Omega(w)=\sum_i^Ww_i^2<br>$$<br>当模型权重过多, 或者某个权重向量值过大时, 都会得到严厉的惩罚. 但是因为L2是权重的平方, 因此当模型遇到异常值时, 对权重进行大幅度调整, 这个误差会被放大.</p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/L2正则化.jpg" style="zoom: 50%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 损失函数 </tag>
+            
+            <tag> 交叉熵 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习之评估指标</title>
       <link href="/posts/18683.html"/>
       <url>/posts/18683.html</url>
@@ -440,17 +469,6 @@
     
     
     <entry>
-      <title>留言板</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>分类</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -462,9 +480,9 @@
     
     
     <entry>
-      <title>markdown</title>
-      <link href="/markdown/index.html"/>
-      <url>/markdown/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -473,9 +491,20 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>留言板</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown</title>
+      <link href="/markdown/index.html"/>
+      <url>/markdown/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
