@@ -325,9 +325,9 @@
             
             <tag> hexo </tag>
             
-            <tag> 博客搭建 </tag>
-            
             <tag> matery </tag>
+            
+            <tag> 博客搭建 </tag>
             
         </tags>
       
@@ -480,6 +480,17 @@
     
     
     <entry>
+      <title>markdown</title>
+      <link href="/markdown/index.html"/>
+      <url>/markdown/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -494,17 +505,6 @@
       <title>留言板</title>
       <link href="/contact/index.html"/>
       <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>markdown</title>
-      <link href="/markdown/index.html"/>
-      <url>/markdown/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
