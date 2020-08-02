@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>机器学习之特征缩放</title>
+      <link href="/posts/46329.html"/>
+      <url>/posts/46329.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="特征缩放-Feature-scaling"><a href="#特征缩放-Feature-scaling" class="headerlink" title="特征缩放 Feature scaling"></a>特征缩放 Feature scaling</h1><p>特征缩放还有另外一个名字, 叫做标准化. 标准化能够尽可能的使得模型快速收敛, 如果某个特征的方差比别的特征大几个数量级的话, 用<strong>距离度量的算法</strong>就会受到非常大的影响, 比如神经网络, SVM, 逻辑回归线性回归等, 但是基于树类选择的模型不会受到缩放的影响. 当特征尺度不同时, 需要用一个统一的量纲来衡量他们. 比方说身高和体重的分布, 就常常不是同一个量级的.</p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/归一化.png" style="zoom: 80%;" /><h2 id="均值标准化-Standardization"><a href="#均值标准化-Standardization" class="headerlink" title="均值标准化 Standardization"></a>均值标准化 Standardization</h2><p>假设数据服从正态分布, 这个标准化是最好的. 也叫Z-score 标准化. 度量相似性等涉及到距离的算法用它效果比较好. 处理后的数值服从均值为0, 方差为1的标准正态分布.会改变原数据的数据分布, 不适用于对稀疏数据做处理.<br>$$<br>x’  = \frac{x - \mu}{\sigma}<br>$$</p><h2 id="最大最小值缩放-Min-Max-Scaling"><a href="#最大最小值缩放-Min-Max-Scaling" class="headerlink" title="最大最小值缩放 Min-Max Scaling"></a>最大最小值缩放 Min-Max Scaling</h2><p>其实就是用最小值和最大值把数据固定到$[0, 1]$ 区域内. 但是当有新数据加入时, 可能导致$X_{max}$和$X_{min}$ 发生变化. 所以这种算法<strong>对数据非常敏感</strong>, 如果有许多异常值可能会导致整个数据集的分布发生变化. 但是它没法消除量纲对方程和协方差的影响, 所以涉及距离的算法计算结果会发生变化.<br>$$<br>x’ = \frac{x - x_{min}}{x_{max} - x_{min}}<br>$$</p><h2 id="最大绝对值缩放-MaxAbs-Scaling"><a href="#最大绝对值缩放-MaxAbs-Scaling" class="headerlink" title="最大绝对值缩放 MaxAbs Scaling"></a>最大绝对值缩放 MaxAbs Scaling</h2><p>最大值绝对值标准化, 和Min-Max方法类似，将数据落入$[-1,1]$区间内, 但是MaxAbs具有<strong>不破坏数据结构</strong>的特点, 可以用于<strong>稀疏数据</strong>.<br>$$<br>x’ = \frac{x}{|\max {x}|}<br>$$</p><h2 id="鲁棒性缩放-Robust-Scaling"><a href="#鲁棒性缩放-Robust-Scaling" class="headerlink" title="鲁棒性缩放 Robust Scaling"></a>鲁棒性缩放 Robust Scaling</h2><p>均值标准化在具有<strong>很多异常值</strong>的情况下是效果不好的, 用中位数和四分位距代替均值和方差效果会好很多.<br>$$<br>x’ = \frac{x - x_{median}}{IQR}  \<br>IQR = x_{q3} - x_{q1}<br>$$<br>$IQR$(interquartile range)为四分位距, 是第三四分位数$Q_3$和第一四分位数$Q_1$的差. $x_{median}$是特征的中位数. </p><p>假设有很大的离群值在特征中, 因为离群值在数轴最大侧的加入, 这个离群值使得$x_{q3}$变大了(虽然$x_{q1}$也变大了, 但是因为分布的缘故可能影响没有$x_{q3}$大), 中位数也变大了, 分母更大, 分子更小, 整体变小. 缩放后的数据更倾向于将离群值平衡到正常范围之内. 很小的离群值同理, 分母变得更小了, 分子更大, 整体变大.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 特征缩放 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习之模型选择</title>
       <link href="/posts/63889.html"/>
       <url>/posts/63889.html</url>
@@ -184,9 +211,9 @@
       
         <tags>
             
-            <tag> 面试 </tag>
-            
             <tag> 操作系统 </tag>
+            
+            <tag> 面试 </tag>
             
         </tags>
       
@@ -294,9 +321,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> 面试 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -352,9 +379,9 @@
             
             <tag> hexo </tag>
             
-            <tag> matery </tag>
-            
             <tag> 博客搭建 </tag>
+            
+            <tag> matery </tag>
             
         </tags>
       
