@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>机器学习之模型选择</title>
+      <link href="/posts/63889.html"/>
+      <url>/posts/63889.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="模型选择-Model-Selection"><a href="#模型选择-Model-Selection" class="headerlink" title="模型选择 Model Selection"></a>模型选择 Model Selection</h1><h2 id="过拟合和欠拟合-Overfitting-and-Underfitting"><a href="#过拟合和欠拟合-Overfitting-and-Underfitting" class="headerlink" title="过拟合和欠拟合 Overfitting and Underfitting"></a>过拟合和欠拟合 Overfitting and Underfitting</h2><p>这个其实非常好解释, 就放在一起说了.</p><p>过拟合就像是平时做很多作业题但是却不会考试的学生, 一到考试就拉胯, 但是平时作业写得很完美. 过拟合导致了过度的学习了作业中的内容, 甚至是单纯错误的把作业题背下来了, 导致<strong>失去了泛化能力</strong>.</p><p>欠拟合就像是平时不怎么学习的学渣. 考试题也不会, 作业也不会写. 欠拟合根本没有对作业中的内容进行学习, 对考试题型的拟合程度根本不够.</p><p>欠拟合对应着高偏差, 过拟合对应着高方差.</p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/偏差和方差.png" style="zoom:67%;" /><ol><li>左上的模型偏差最大, 右下的模型偏差最小.</li><li>左上的模型方差最小, 右下的模型方差最大. 这样去理解, 如果两个训练集的分布有一丝丝差异, 由于采用了复杂的模型拟合, 会导致分类结果或回归结果截然不同. 就导致新样本点散落在原样本的两侧, 方差极高.</li></ol><p>用CV代表在验证集上的训练误差, 而Training error代表在训练集上的训练误差.</p><p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/learning-curves.png" alt=""></p><p>欠拟合的训练误差和验证误差都很大, 过拟合的训练误差很小, 但是测试误差很大. 只有在中间的模型刚刚好, 具有泛化能力, 也同时具有判断问题的能力.</p><h2 id="交叉验证-Cross-Validation"><a href="#交叉验证-Cross-Validation" class="headerlink" title="交叉验证 Cross Validation"></a>交叉验证 Cross Validation</h2><p>先解释一下数据的分割问题. 我们常常将数据分割为三类, 分别是<strong>训练集, 验证集, 和测试集</strong>. 一般都将一份数据集按照比例划分成训练集和验证集, 测试集一般取样于实际问题中, 这样才能够检验模型真正的泛化能力. 但是在后面说的”全部数据集” 都是在不考虑测试集情况下说的, 也就是只划分为训练集和测试集的情况.</p><table><thead><tr><th align="center">划分</th><th align="left">意义</th></tr></thead><tbody><tr><td align="center">训练集</td><td align="left">专门用来训练模型的, 在训练过程中, 模型参数会随着训练而改变, 就像是上课一样.</td></tr><tr><td align="center">验证集</td><td align="left">用来检测当前模型对数据集的拟合程度, 此时模型参数不会更新, 它像作业题.</td></tr><tr><td align="center">测试集</td><td align="left">模型从来没有见过的, 真正的考试题, 能够判决模型能力的终极手段.</td></tr></tbody></table><p><strong>测试集只能用一次, 就是最后对模型参数调好后进行终极测试的时候</strong>.</p><p>对于一份数据, 如果我们既将它全部用来训练, 也用于验证, 那么就相当于用作业题去上课, 造成了<strong>标签泄露</strong>. 如果只将训练集拿去训练呢, 又会损失一部分训练的数据, 并且模型最终的结果严重取决于训练集和验证集的划分. 基于这个矛盾, 提出了交叉验证.</p><h3 id="K折交叉验证-K-Fold-Cross-Validation"><a href="#K折交叉验证-K-Fold-Cross-Validation" class="headerlink" title="K折交叉验证 K-Fold Cross Validation"></a>K折交叉验证 K-Fold Cross Validation</h3><p>将含有$m$个样本的数据集划分为$k$个不相交的子集, 每个子集有$\frac{m}{k}$ 个样本. 从每次分好的样本中, 选一个子集作为验证集, 其他$k-1$个子集全部作为训练集, 每次训练都能得到一个评估值(每次都用同样的参数训练一个新的分类器), 重复进行$k$ 次最后取平均, 就是k折交叉验证所得到的验证结果. K-Fold CV 能反映出当前模型真正的拟合能力, 经验值常取k为5, 10… </p><h3 id="留一法-Leave-one-out-cross-validation"><a href="#留一法-Leave-one-out-cross-validation" class="headerlink" title="留一法 Leave-one-out cross-validation"></a>留一法 Leave-one-out cross-validation</h3><p>当$k=m$的时候, 每个子集只有一个样本, 每次只取一个样本作为验证集, 用其余所有样本进行训练, K折交叉验证就变成了留一法. 工业界常采用留一法, 因为留一法能够最大程度的利用样本, 但是也同时牺牲了时间. 如果有k个样本, 则需要训练k次, 测试k次. <strong>小样本适用</strong>.</p><h2 id="网格搜索-Grid-Search"><a href="#网格搜索-Grid-Search" class="headerlink" title="网格搜索 Grid Search"></a>网格搜索 Grid Search</h2><p>当我们不知道模型的参数如何选择时, 可以采用网格搜索. 网格搜索其实就是暴力穷举, 将模型所有可能的参数取值全都试一遍, 这能保证不遗漏模型组合参数造成的影响, 但是同时这样做的时间成本也非常高. 所以一般情况下都是先进行参数范围的缩小, 最后再使用网格搜索. 网格搜索也常和交叉验证一起使用, 用来更精确的评价模型.</p><p><img src="/medias/loading/loading2.gif" data-original="https://gitee.com/Daning0/Images/raw/master/MLDL/gridSearch.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 交叉验证 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习之损失函数</title>
       <link href="/posts/49440.html"/>
       <url>/posts/49440.html</url>
@@ -325,9 +352,9 @@
             
             <tag> hexo </tag>
             
-            <tag> matery </tag>
-            
             <tag> 博客搭建 </tag>
+            
+            <tag> matery </tag>
             
         </tags>
       
@@ -480,9 +507,9 @@
     
     
     <entry>
-      <title>markdown</title>
-      <link href="/markdown/index.html"/>
-      <url>/markdown/index.html</url>
+      <title>留言板</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -502,9 +529,9 @@
     
     
     <entry>
-      <title>留言板</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
+      <title>markdown</title>
+      <link href="/markdown/index.html"/>
+      <url>/markdown/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
