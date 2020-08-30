@@ -125,12 +125,12 @@
 
     i <span class="token operator">=</span> left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 慢指针初始化为left左侧 </span>
     <span class="token comment" spellcheck="true">/* 
-        若快指针所指向的元素比基准元素小
-        此时慢指针指向的元素一定比基准元素大
-        因为快指针元素只有比基准元素小才让慢指针前进 
-        则让慢指针往前进一位 并交换快慢指针所指元素 
         若快指针所指元素比基准元素大
         则慢指针什么都不做 
+        若快指针所指向的元素比基准元素小
+        则让慢指针往前进一位 并交换快慢指针所指元素 
+        因为j只有比基准元素小才让慢指针前进 
+        所以在交换前慢指针指向的元素一定比基准元素大
     */</span> 
     <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span>left<span class="token punctuation">;</span> j<span class="token operator">&lt;</span>right<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span><span class="token punctuation">{</span> 
         <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> a<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
