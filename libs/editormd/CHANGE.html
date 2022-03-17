@@ -1,0 +1,647 @@
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v1-0-x"><a href="#v1-0-x" class="headerlink" title="v1.0.x"></a>v1.0.x</h3><h5 id="v1-0-0-beta"><a href="#v1-0-0-beta" class="headerlink" title="v1.0.0 beta"></a>v1.0.0 beta</h5><p>预览版：基本功能完成；</p>
+<h5 id="v1-0-0-releases"><a href="#v1-0-0-releases" class="headerlink" title="v1.0.0 releases"></a>v1.0.0 releases</h5><p>发布 v1.0.0 正式版。</p>
+<p>主要更新：</p>
+<ul>
+<li><p>新建分支 <code>mathjax-version</code>，但不打算继续对此分支进行开发；</p>
+</li>
+<li><p>移除 MathJax，改用 KaTeX <a href="https://github.com/pandao/editor.md/issues/2" target="_blank" rel="noopener">#2</a>，解析和预览响应速度大幅度提高 <a href="https://github.com/pandao/editor.md/issues/3" target="_blank" rel="noopener">#3</a>；</p>
+<ul>
+<li>移除 <code>mathjax</code> 配置项；</li>
+<li>移除 <code>mathjaxURL</code> 属性；</li>
+<li>移除 <code>setMathJaxConfig()</code> 方法；</li>
+<li>移除 <code>loadMathJax()</code> 方法；</li>
+<li>移除MathJax的所有示例；</li>
+<li>新增 <code>tex</code> 配置项，表示是否开启支持科学公式 TeX ，基于 KaTeX；</li>
+<li>新增 <code>katexURL</code> 属性；</li>
+<li>新增 <code>loadKaTeX</code> 方法；</li>
+<li>新增 KaTeX 的示例；</li>
+</ul>
+</li>
+<li><p><code>setCodeEditor()</code> 方法更名为 <code>setCodeMirror()</code>；</p>
+</li>
+<li><p>合并 CodeMirror 使用到的多个 JS 模块文件，大幅减少 HTTP 请求，加快下载速度；</p>
+<ul>
+<li>新增合并后的两个模块文件：<code>./lib/codemirror/modes.min.js</code>、<code>./lib/codemirror/addons.min.js</code> ；</li>
+<li><code>Gulpfile.js</code> 新增合并 CodeMirror 模块文件的任务方法 <code>codemirror-mode</code> 和 <code>codemirror-addon</code> ；</li>
+<li>另外在使用 Require.js 时，因为 CodeMirror 的严格模块依赖的限制，不能使用上述合并的模块文件，仍然采用动态加载多个模块文件；</li>
+</ul>
+</li>
+<li><p>更新 <code>README.md</code> 等相关文档和示例；</p>
+</li>
+<li><p>解决 Sea.js 环境下 Raphael.js 无法运行导致不支持流程图和时序图的问题，即必须先加载 Raphael.js ，后加载 Sea.js ；</p>
+</li>
+</ul>
+<h3 id="v1-1-x"><a href="#v1-1-x" class="headerlink" title="v1.1.x"></a>v1.1.x</h3><h5 id="v1-1-0"><a href="#v1-1-0" class="headerlink" title="v1.1.0"></a>v1.1.0</h5><p>主要更新：</p>
+<ul>
+<li>设计并更换了 Logo；</li>
+<li>新增添加图片、链接、锚点链接、代码块、预格式文本等操作弹出对话框层及示例；</li>
+<li>新增支持图片(跨域)上传；</li>
+<li>改用 <code>&lt;textarea&gt;</code> 来存放 Markdown 源文档；</li>
+<li>新增支持自定义工具栏；</li>
+<li>新增支持多语言；</li>
+<li>新增支持 Zepto.js；</li>
+<li>新增支持多个 Editor.md 并存和动态加载 Editor.md 及示例；</li>
+<li>新增支持智能识别和解析 HTML 标签及示例；</li>
+<li>新增多个外部操作方法接口及示例；</li>
+<li>修复了一些大大小小的 Bug；</li>
+</ul>
+<p>具体更新如下：</p>
+<ul>
+<li><p>更换 Logo，建立基础 VI；</p>
+<ul>
+<li>创建了全系列 WebFont 字体 <code>dist/fonts/editormd-logo.*</code> ；</li>
+<li>新增样式类 <code>editormd-logo</code> 等；</li>
+</ul>
+</li>
+<li><p>改用 <code>&lt;textarea&gt;</code> 来存放 Markdown 源文档；</p>
+<ul>
+<li>原先使用 <code>&lt;script type=&quot;text/markdown&quot;&gt;&lt;/script&gt;</code> 来存放 Markdown 源文档；</li>
+<li>创建 Editor.md 只需要写一个 <code>&lt;div id=&quot;xxxx&quot;&gt;&lt;/div&gt;</code> ，如果没有添加 <code>class=&quot;editormd&quot;</code> 属性会自动添加，另外如果不存在 <code>&lt;textarea&gt;</code> 标签，则也会自动添加 <code>&lt;textarea&gt;</code> ；</li>
+</ul>
+</li>
+<li><p>新增支持智能识别和解析 HTML 标签，增强了 Markdown 语法的扩展性，几乎无限，例如：插入视频等等；</p>
+<ul>
+<li>新增配置项 <code>htmlDecode</code> ，表示是否开启 HTML 标签识别和解析，但是为了安全性，默认不开启；</li>
+<li>新增识别和解析 HTML 标签的示例；</li>
+</ul>
+</li>
+<li><p>新增插入链接、锚点链接、预格式文本和代码块的弹出对话框层；</p>
+<ul>
+<li>弹出层改为使用固定定位；</li>
+<li>新增动态创建对话框的方法 <code>createDialog()</code>；</li>
+<li>新增静态属性 <code>editormd.codeLanguages</code> ，用于存放代码语言列表；</li>
+</ul>
+</li>
+<li><p>开始支持图片上传；</p>
+<ul>
+<li>新增添加图片（上传）弹出对话框层；</li>
+<li>支持基于 iframe 的跨域上传，并添加相应的示例（ PHP 版）；</li>
+</ul>
+</li>
+<li><p>开始支持自定义工具栏图标及操作处理；</p>
+<ul>
+<li>配置项 <code>toolbarIcons</code> 类型由数组更改为函数，返回一个图标按钮列表数组；</li>
+<li>新增配置项 <code>toolbarHandlers</code> 和 <code>toolbarIconsTexts</code> ，分别用于自定义按钮操作处理和按钮内容文本；</li>
+<li>新增方法 <code>getToolbarHandles()</code> ，用于可在外部使用默认的操作方法；</li>
+<li>新增成员属性 <code>activeIcon</code> ，可获取当前或上次点击的工具栏图标的 jQuery 实例对象；</li>
+</ul>
+</li>
+<li><p>新增表单取值、自定义工具栏、图片上传、多个 Editor.md 并存和动态加载 Editor.md 等多个示例；</p>
+</li>
+<li><p>新增插入锚点按钮和操作处理；</p>
+</li>
+<li><p>新增预览 HTML 内容窗口的关闭按钮，之前只能按 ESC 才能退出 HTML 全窗口预览；</p>
+</li>
+<li><p>新增多语言（ l18n ）及动态加载语言包支持；</p>
+<ul>
+<li>新增英语 <code>en</code> 和繁体中文 <code>zh-tw</code> 语言包模块；</li>
+<li>修改一些方法的内部实现以支持动态语言加载:<ul>
+<li><code>toolbarHandler()</code> 更为 <code>setToolbarHandler()</code> ；</li>
+<li><code>setToolbar()</code> 方法包含 <code>setToolbarHandler()</code> ；</li>
+<li>新建 <code>createInfoDialog()</code> 方法；</li>
+<li>修改 <code>showInfoDialog()</code> 和 <code>hideInfoDialog()</code> 方法的内部实现等；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>修改多次 Bug ，并优化触摸事件，改进对 iPad 的支持；</p>
+</li>
+<li><p>工具栏新增清空按钮和清空方法 <code>clear()</code> ，解决工具栏文本会被选中出现蓝底的问题;</p>
+</li>
+<li><p>配置项 <code>tocStartLevel</code> 的默认值由 2 改为 1，表示默认从 H1 开始生成 ToC；</p>
+</li>
+<li><p>解决 IE8 下加载出错的问题；</p>
+<ul>
+<li>新增两个静态成员属性 <code>isIE</code> 和 <code>isIE8</code> ，用于判断 IE8；</li>
+<li>由于 IE8 不支持 FlowChart 和 SequenceDiagram，默认在 IE8 下不加载这两个组件，无论是否开启；</li>
+</ul>
+</li>
+<li><p>新增 Zepto.js 的支持；</p>
+<ul>
+<li>为了兼容 Zepto.js ，某些元素在操作处理上不再使用 <code>outerWidth()</code> 、 <code>outerHeight()</code> 、<code>hover()</code> 、<code>is()</code> 等方法；</li>
+<li>为了避免修改 flowChart.js 和 sequence-diagram.js 的源码，所以想支持 flowChart 或 sequenceDiagram 得加上这一句： <code>var jQuery = Zepto;</code>；</li>
+</ul>
+</li>
+<li><p>新增 <code>editormd.$name</code> 属性，修改 <code>editormd.homePage</code> 属性的新地址；</p>
+</li>
+<li><p><code>editormd.markdownToHTML()</code> 新增方法返回一个 jQuery 实例对象；</p>
+<ul>
+<li>该实例对象定义了一个 <code>getMarkdown()</code>方法，用于获取 Markdown 源代码；</li>
+<li>该实例对象定义了一个 <code>tocContainer</code> 成员属性，即 ToC 列表的父层的 jQuery 实例对象；</li>
+</ul>
+</li>
+<li><p>新增只读模式；</p>
+<ul>
+<li>新增配置项 <code>readOnly</code> ，默认值为 <code>false</code> ，即可编辑模式；</li>
+<li>其他相关改动；</li>
+</ul>
+</li>
+<li><p>新增方法 <code>focus()</code> 、 <code>setCursor()</code> 、 <code>getCursor()</code> 、<code>setSelection()</code> 、<code>getSelection()</code> 、 <code>replaceSelection()</code> 和 <code>insertValue()</code> 方法，并增加对应的示例；</p>
+</li>
+<li><p>新增配置项 <code>saveHTMLToTextarea</code> ，用于将解析后的 HTML 保存到 Textarea，以供提交到后台程序；</p>
+<ul>
+<li><code>getHTML()</code> 方法必须在 <code>saveHTMLToTextarea == true</code> 的情况下才能使用；</li>
+<li>新增 <code>getHTML()</code> 方法的别名 <code>getTextareaSavedHTML()</code> 方法；</li>
+<li>新增方法 <code>getPreviewedHTML()</code> ，用于获取预览窗口的 HTML ；</li>
+</ul>
+</li>
+<li><p>修复了一些大大小小的 Bugs；</p>
+</li>
+</ul>
+<h5 id="v1-1-1"><a href="#v1-1-1" class="headerlink" title="v1.1.1"></a>v1.1.1</h5><ul>
+<li>接受一个 pull 请求，修复了 <code>getHTML ()</code> 和 <code>getPreviewedHTML()</code> 方法中的 ３ 处错误；</li>
+</ul>
+<h5 id="v1-1-2"><a href="#v1-1-2" class="headerlink" title="v1.1.2"></a>v1.1.2</h5><ul>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/10" target="_blank" rel="noopener">＃10</a>；</li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/12" target="_blank" rel="noopener">＃12</a>；</li>
+</ul>
+<h5 id="v1-1-3"><a href="#v1-1-3" class="headerlink" title="v1.1.3"></a>v1.1.3</h5><ul>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/14" target="_blank" rel="noopener">＃14</a>；</li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/15" target="_blank" rel="noopener">＃15</a>；</li>
+</ul>
+<h5 id="v1-1-4"><a href="#v1-1-4" class="headerlink" title="v1.1.4"></a>v1.1.4</h5><ul>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/17" target="_blank" rel="noopener">＃17</a>；<ul>
+<li>修改了 <code>getToolbarHandles()</code> 和 <code>setToolbarHandler()</code> 方法；</li>
+</ul>
+</li>
+<li>从 <code>editormd.scss</code> 中分离出 <code>editormd.logo.scss</code> ，并生成 <code>editormd.logo.css</code> ，以便单独使用；<ul>
+<li>同时修改了 <code>Gulpfile.js</code> 的相应任务；</li>
+</ul>
+</li>
+</ul>
+<h5 id="v1-1-5"><a href="#v1-1-5" class="headerlink" title="v1.1.5"></a>v1.1.5</h5><ul>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/18" target="_blank" rel="noopener">＃18</a>；</p>
+<ul>
+<li>修改了 <code>showInfoDialog()</code> 和 <code>createInfoDialog()</code> 方法；</li>
+<li>新增 <code>infoDialogPosition()</code> 方法；</li>
+</ul>
+</li>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/20" target="_blank" rel="noopener">＃20</a>；</p>
+<ul>
+<li>修改了引用的处理函数；</li>
+<li>插入的 headers 的 <code>#</code> 号后面都加上了一个空格；</li>
+</ul>
+</li>
+</ul>
+<h5 id="v1-1-6"><a href="#v1-1-6" class="headerlink" title="v1.1.6"></a>v1.1.6</h5><p>修复多处 Bug，具体如下：</p>
+<ul>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/23" target="_blank" rel="noopener">#23</a>，即 Headers 的 id 属性的重复及中文问题；</p>
+<ul>
+<li>修改了 <code>editormd.markedRenderer()</code> 方法；</li>
+</ul>
+</li>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/24" target="_blank" rel="noopener">#24</a>；</p>
+<ul>
+<li>修改了 <code>setMarkdown()</code> 、 <code>clear()</code> 和 <code>loadedDisplay()</code> 方法的内部实现；</li>
+<li>新增了 <code>katexRender()</code> 、 <code>flowChartAndSequenceDiagramRender()</code> 、 <code>previewCodeHighlight()</code> 方法；</li>
+</ul>
+</li>
+<li><p>修复有些情况下无法保存 Markdown 源文档到 textarea 的问题；</p>
+<ul>
+<li>修改了 <code>setCodeMirror()</code> 、 <code>recreateEditor()</code> 等方法；</li>
+</ul>
+</li>
+<li><p>修改了以上 Bug 及部分相关示例文件；</p>
+</li>
+</ul>
+<h5 id="v1-1-7"><a href="#v1-1-7" class="headerlink" title="v1.1.7"></a>v1.1.7</h5><p>修复多处 Bug，具体如下：</p>
+<ul>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/25" target="_blank" rel="noopener">#25</a>；</p>
+<ul>
+<li>修改了 <code>loadedDisplay()</code> 方法，将 <code>settings.onload</code> 移动了 <code>CodeMirror.on(&quot;change&quot;)</code> 事件注册后再触发；</li>
+</ul>
+</li>
+<li><p>修复 Bug <a href="https://github.com/pandao/editor.md/issues/26" target="_blank" rel="noopener">#26</a>；</p>
+<ul>
+<li>修改了 <code>saveToTextareas()</code> 方法；</li>
+<li>新增 <code>state.loaded</code> 和 <code>state.watching</code> 两个属性；</li>
+</ul>
+</li>
+<li><p>修改了以上 Bug 相关示例文件；</p>
+</li>
+</ul>
+<h5 id="v1-1-8"><a href="#v1-1-8" class="headerlink" title="v1.1.8"></a>v1.1.8</h5><p>改进功能，具体如下：</p>
+<ul>
+<li><p>改进 <a href="https://github.com/pandao/editor.md/issues/27" target="_blank" rel="noopener">#27</a>；</p>
+<ul>
+<li>新增配置项 <code>matchWordHighlight</code> ，可选值有： <code>true, false, &quot;onselected&quot;</code> ，默认值为 <code>true</code> ，即开启自动匹配和标示相同单词；</li>
+</ul>
+</li>
+<li><p>改进 <a href="https://github.com/pandao/editor.md/issues/28" target="_blank" rel="noopener">#28</a>；</p>
+<ul>
+<li>将 <code>jquery.min.js</code> 、 <code>font-awesome.min.css</code> 、 <code>github-markdown.css</code> 移除（这是一个疏忽，它们不是动态加载的依赖模块或者不需要的，避免不必要的硬盘空间占用）；</li>
+</ul>
+</li>
+<li><p>修改了所有相关的示例文件；</p>
+</li>
+</ul>
+<h5 id="v1-1-9"><a href="#v1-1-9" class="headerlink" title="v1.1.9"></a>v1.1.9</h5><ul>
+<li><p>修复无法解析 heading link 的 Bug <a href="https://github.com/pandao/editor.md/issues/29" target="_blank" rel="noopener">#29</a>；</p>
+<ul>
+<li>修改了 <code>editormd.markedRenderer()</code> 方法的内部实现；</li>
+<li>新增了 <code>editormd.trim()</code> ，用于清除字符串两边的空格；</li>
+<li>修改了所有相关的示例文件和测试用例 <code>marked-heading-link-test.html</code> ；</li>
+</ul>
+</li>
+<li><p>修改了 <code>README.md</code> ，添加了 <code>Shields.io</code> 图标；</p>
+</li>
+</ul>
+<h3 id="v1-2"><a href="#v1-2" class="headerlink" title="v1.2"></a>v1.2</h3><h5 id="v1-2-0"><a href="#v1-2-0" class="headerlink" title="v1.2.0"></a>v1.2.0</h5><p>v1.2.0 主要更新：</p>
+<ul>
+<li>新增代码折叠、搜索替换、自定义样式主题和自定义快捷键等功能；</li>
+<li>新增 Emoji 表情、@Link 、GFM Task Lists 支持；</li>
+<li>新增表格插入、Emoji 表情插入、HTML 实体字符插入、使用帮助等对话框；</li>
+<li>新增插件扩展机制；</li>
+<li>新增手动加载依赖模块方式；</li>
+<li>改用 <code>Prefixes.css</code> 作 CSS 前缀预处理；</li>
+<li>改进和增强工具栏自定义功能，完善事件监听和处理方法；</li>
+<li>部分功能改进（更加方便的预格式文本/代码插入、自动闭合标签等）、新增多个方法、改进 Require.js 支持和修复多个 Bug 等等；</li>
+</ul>
+<p><strong>具体更新如下：</strong></p>
+<ul>
+<li><p>新建 v1.1.x 分支；</p>
+<ul>
+<li>v1.2 文件结构变动较大；</li>
+</ul>
+</li>
+<li><p>新增代码折叠、自动闭合标签和搜索替换功能；</p>
+<ul>
+<li>搜索快捷键 <code>Ctrl + F / Command + F</code> ；</li>
+<li>替换快捷键 <code>Ctrl + Shift + F / Command + Option + F</code> ；</li>
+<li>折叠快捷键 <code>Ctrl + Q / Command + Q</code> ；</li>
+</ul>
+</li>
+<li><p>新增自定义主题支持；</p>
+<ul>
+<li>新增 3 个成员方法 <code>setTheme()</code> 、 <code>setCodeMirrorOption()</code> 和 <code>getCodeMirrorOption()</code> ；</li>
+</ul>
+</li>
+<li><p>新增 @Link 支持；</p>
+</li>
+<li><p>新增 GFM Task Lists 支持；</p>
+</li>
+<li><p>新增 Emoji 表情支持；</p>
+<ul>
+<li>支持 Github emoji <code>:emoji-name:</code> 、FontAwesome icons（<code>:fa-xxx:</code>）、Twitter emoji (twemoji) （ <code>:tw-xxxx:</code> ）、Editor.md logo icons（ <code>:editormd-logo:</code> ）形式的 Emoji；</li>
+<li>新增属性 <code>editormd.emoji</code> 、 <code>editormd.twemoji</code> 、 <code>editormd.urls</code> 和 <code>editormd.regex</code>；</li>
+</ul>
+</li>
+<li><p>新增 HTML 实体字符插入、插入表格和使用帮助对话框；</p>
+<ul>
+<li>修改了 <code>createDialog()</code> 等方法；</li>
+<li>新增 <code>mask</code> 成员属性和锁屏方法 <code>editormd.lockScreen()</code> 、 <code>editormd.fn.lockScreen()</code> ；</li>
+</ul>
+</li>
+<li><p>改进插入预格式文本和代码对话框；</p>
+<ul>
+<li>将 <code>&lt;textarea&gt;</code> 改为 <code>CodeMirror</code> ，输入更加方便和直观；</li>
+</ul>
+</li>
+<li><p>新增自定义键盘快捷键功能；</p>
+<ul>
+<li>新增 2 个方法： <code>addKeyMap()</code> 和 <code>removeKayMap()</code>；</li>
+</ul>
+</li>
+<li><p>改用 <code>Prefixes.css</code> 作CSS前缀预处理；</p>
+<ul>
+<li>SCSS前缀预处理mixins改用 <a href="https://github.com/pandao/prefixes.scss" target="_blank" rel="noopener" title="Prefixes.scss">Prefixes.scss</a>；</li>
+</ul>
+</li>
+<li><p>改进和增强工具栏自定义功能；</p>
+<ul>
+<li>新增配置项 <code>toolbarCustomIcons</code> ，用于增加自定义工具栏的功能，可以直接插入 HTML 标签，不使用默认的元素创建图标；</li>
+<li>新增工具栏列表预设值属性 <code>editormd.toolbarModes</code> ；</li>
+<li>移除成员属性 <code>toolbarIconHandlers</code> ；</li>
+</ul>
+</li>
+<li><p>完善和新增事件处理方法；</p>
+<ul>
+<li>新增事件回调注册方法 <code>on()</code> ；</li>
+<li>新增事件回调移除方法 <code>off()</code> ；</li>
+<li>新增事件回调处理配置项： <code>onresize</code> 、 <code>onscroll</code> 、<code>onpreviewscroll</code> 、 <code>onpreviewing</code> 、 <code>onpreviewed</code> 、<code>onwatch</code> 和 <code>onunwatch</code> ；</li>
+</ul>
+</li>
+<li><p>新增手动加载依赖模块方式，以便可同步使用成员方法；</p>
+<ul>
+<li>新增属性 <code>autoLoadModules</code> ，默认值为 <code>true</code> ；</li>
+</ul>
+</li>
+<li><p>新增插件及扩展机制；</p>
+<ul>
+<li>新增插件自定义机制，改变整体结构(包括文件结构)，以便更加方便地实现插件扩展；</li>
+<li>新增对象扩展方法 <code>extends()</code> 、 <code>set()</code> ；</li>
+</ul>
+</li>
+<li><p>新增成员方法和属性：</p>
+<ul>
+<li>新增两个方法： <code>setValue()</code> 、<code>getValue()</code>；</li>
+<li>新增 <code>config()</code> 方法，用于加载后重新配置；</li>
+<li>增加两个属性 <code>cm</code> ，是 <code>codeEditor</code> 的简写， <code>cmElement</code> 是 <code>codeMirror</code> 的别名;</li>
+</ul>
+</li>
+<li><p>成员方法的改进：</p>
+<ul>
+<li>改进： <code>showToolbar()</code> 和 <code>hideToolbar()</code> 方法增加一个 <code>callback</code> 函数，用于直接回调操作；</li>
+<li>改进：修改了 <code>previewCodeHighlight()</code> 方法；</li>
+<li>更名： <code>recreateEditor()</code> 更名为 <code>recreate()</code> ；</li>
+<li>移除 <code>setMarked()</code> 方法；</li>
+</ul>
+</li>
+<li><p>新增 HTML 标签解析过滤机制；</p>
+<ul>
+<li>通过设置 <code>settings.htmlDecode = &quot;style,script,iframe&quot;</code> 来实现过滤指定标签的解析；</li>
+</ul>
+</li>
+<li><p>改进 Require.js 支持；</p>
+<ul>
+<li>修复 Require.js 下 CodeMirror 编辑器的代码无法高亮的问题；</li>
+<li>更新 <code>underscore</code> 版本至 <code>1.8.2</code> ；</li>
+<li>移除 <code>editormd.requirejsInit()</code> 和 <code>editormd.requireModules()</code> 方法；</li>
+<li>新增 <code>Require.js/AMD</code> 专用版本文件 <code>editormd.amd.js</code> ；</li>
+<li>新建 Gulp 任务 <code>amd</code> ；</li>
+</ul>
+</li>
+<li><p>修改和新增以上改进等相关示例；</p>
+</li>
+</ul>
+<h3 id="v1-3"><a href="#v1-3" class="headerlink" title="v1.3"></a>v1.3</h3><h4 id="v1-3-0"><a href="#v1-3-0" class="headerlink" title="v1.3.0"></a>v1.3.0</h4><p>主要更新：</p>
+<ul>
+<li>预设键盘快捷键处理（粗体等），插入 Markdown 更加方便；</li>
+<li>更新 CodeMirror 版本为 <code>5.0</code> ；</li>
+<li>更新 Marked 版本为 <code>0.3.3</code>；</li>
+<li>新增自动高度和工具栏固定定位功能；</li>
+<li>改进表格插入对话框；</li>
+<li>工具栏新增三个按钮，分别是将所选文本首字母转成大写、转成小写、转成大写；</li>
+<li>修改使用帮助文档；</li>
+<li>修复多个 Bug；</li>
+</ul>
+<p>具体更新如下：</p>
+<ul>
+<li><p>新增常用键盘快捷键预设处理；</p>
+<ul>
+<li>新增属性 <code>editormd.keyMaps</code> ，预设一些常用操作，例如插入粗体等；</li>
+<li>新增成员方法 <code>registerKeyMaps()</code> ；</li>
+<li>退出HTML全屏预览快捷键更改为 <code>Shift + ESC</code>；</li>
+<li>新增配置项 <code>disabledKeyMaps</code> ，用于屏蔽一些快捷键操作；</li>
+</ul>
+</li>
+<li><p>更新 CodeMirror 版本为 <code>5.0</code>；</p>
+<ul>
+<li>修改无法输入 <code>/</code> 的问题；</li>
+</ul>
+</li>
+<li><p>更新 Marked 版本为 <code>0.3.3</code>；</p>
+</li>
+<li><p>新增自动高度和工具栏固定定位（滚动条拖动时）模式；</p>
+<ul>
+<li>新增配置项 <code>settings.autoHeight</code> ；</li>
+<li>新增配置项 <code>settings.toolbarAutoFixed</code> ；</li>
+<li>新增方法 <code>setToolbarAutoFixed(true|false)</code> ；</li>
+</ul>
+</li>
+<li><p>新增邮箱地址自动添加链接功能；</p>
+<ul>
+<li>新增配置项 <code>emailLink</code> ，默认为 <code>true</code> ; </li>
+</ul>
+</li>
+<li><p>改进表格插入对话框；</p>
+</li>
+<li><p>工具栏新增三个按钮，分别是将所选文本首字母转成大写、转成小写、转成大写；</p>
+<ul>
+<li>新增方法 <code>editormd.ucwords()</code> ，别名 <code>editormd.wordsFirstUpperCase()</code> ；</li>
+<li>新增方法 <code>editormd.ucfirst()</code> ，别名 <code>editormd.firstUpperCase()</code> ；</li>
+<li>新增两个成员方法 <code>getSelections()</code> 和 <code>getSelections()</code> ；</li>
+</ul>
+</li>
+<li><p>修复 Font awesome 图标 emoji 部分无法解析的 Bug，<a href="https://github.com/pandao/editor.md/issues/39" target="_blank" rel="noopener">#39</a></p>
+</li>
+<li><p>改进 @link 功能 <a href="https://github.com/pandao/editor.md/issues/40" target="_blank" rel="noopener">#40</a>；</p>
+<ul>
+<li>新增配置项 <code>atLink</code> ，默认为 <code>true</code> ; </li>
+</ul>
+</li>
+<li><p>修复无法输入 <code>/</code> 的问题 <a href="https://github.com/pandao/editor.md/issues/42" target="_blank" rel="noopener">#42</a>；</p>
+</li>
+<li><p>修改使用帮助说明的错误 <a href="https://github.com/pandao/editor.md/issues/43" target="_blank" rel="noopener">#43</a>；</p>
+</li>
+<li><p>新增配置项 <code>pluginPath</code>，默认为空时，等于 <code>settings.path + &quot;../plugins/&quot;</code> ；</p>
+</li>
+</ul>
+<h3 id="v1-4"><a href="#v1-4" class="headerlink" title="v1.4"></a>v1.4</h3><h4 id="v1-4-0"><a href="#v1-4-0" class="headerlink" title="v1.4.0"></a>v1.4.0</h4><p>主要更新：</p>
+<ul>
+<li>新增延迟解析机制，预览更即时；</li>
+<li>新增跳转到指定行的功能和对话框；</li>
+<li>新增 ToC 下拉菜单、自定义 ToC 容器的功能；</li>
+<li>新增跳转到行、搜索的工具栏按钮；</li>
+<li>新增支持插入和解析（打印）分页符；</li>
+<li>改进快捷键功能和自动高度模式等；</li>
+<li>改进：将锚点链接改名为引用链接；</li>
+<li>改进编辑器重建和重配置功能；</li>
+<li>修复多个 Bug；</li>
+</ul>
+<p>具体更新：</p>
+<ul>
+<li>新增延迟解析预览的机制，解决输入太多太快出现的 “延迟卡顿” 问题；<ul>
+<li>新增配置项 <code>delay</code> ，默认值为 <code>300</code>；</li>
+<li>修复当输入速度太快时，解析Flowchart会抛出错误的问题；</li>
+</ul>
+</li>
+<li>修改 iPad 等移动终端的浏览器无法上传图片的问题 <a href="https://github.com/pandao/editor.md/issues/48" target="_blank" rel="noopener">#48</a>；</li>
+<li>修复单独引用 <code>editormd.preview.css</code> 时无法显示 Font Awesome 和 Editor.md logo 字体的问题；</li>
+<li>更新和修改 Gulp 构建；<ul>
+<li>修改了 <code>Gulpfile.js</code> ，并且 <code>gulp-ruby-sass</code> 升级到最新版本 <code>1.0.0-alpha.3</code> ; </li>
+<li>编辑 SCSS 时，不再生成 CSS 的 Source map 文件；</li>
+</ul>
+</li>
+<li>执行 jshint 和更正一些 JS 写法的不规范，精简了代码；</li>
+<li>新增配置项 <code>appendMarkdown</code> 和 <code>appendMarkdown()</code> 方法，用于(初始化前后)追加 Markdown 到 Textarea ；</li>
+<li>改进部分预设快捷键功能，包括 F9 (watch)、F10 (preview)、F11 (fullscreen)等;</li>
+<li>修复自动高度模式下出现的几个问题；<ul>
+<li>全屏退出时高度不正确的问题：修改了 <code>fullscreenExit()</code> 方法的内部实现；</li>
+<li>当解析预览后的 HTML 内容高度高于 Markdown 源码编辑器高度时，无法正确预览的问题 <a href="https://github.com/pandao/editor.md/issues/49" target="_blank" rel="noopener">#49</a>；</li>
+</ul>
+</li>
+<li>修改 <code>onscroll</code> 和 <code>onpreviewscroll</code> 无法访问 <code>this</code> 的问题；</li>
+<li>修改 <code>init()</code> 方法，可以只设置一个参数；</li>
+<li>新增插入 TeX (KaTeX) 公式的快捷键 <code>Ctrl + Shift + K</code> 和插入方法 <code>tex()</code> ；</li>
+<li>将锚点链接改为引用链接，引用的链接改为插入到页尾；<ul>
+<li>工具栏的名称 <code>anchor</code> 改为 <code>reference-link</code>；</li>
+<li>工具栏的名称 <code>htmlEntities</code> 改名为 <code>html-entities</code>；</li>
+</ul>
+</li>
+<li>改进编辑器重建和重配置功能；<ul>
+<li>修改了 <code>loadedDisplay()</code> 方法；</li>
+<li>修改了 <code>config()</code> 和 <code>recreate()</code> 方法；</li>
+</ul>
+</li>
+<li>新增跳转到指定行的功能；<ul>
+<li>新增方法 <code>gotoLine()</code> ；</li>
+<li>新增跳转到行对话框插件 <code>goto-line-dialog</code> ；</li>
+<li>新增快捷键 <code>Ctrl + Alt + G</code> ；</li>
+<li>改进 <code>executePlugin()</code> 方法；</li>
+<li>修改了 <code>help-dialog/help.md</code> ；</li>
+</ul>
+</li>
+<li>新增搜索工具栏按钮；<ul>
+<li>新增方法 <code>search()</code> 、<code>searchReplace()</code> 和 <code>searchReplaceAll()</code> ；</li>
+<li>原全屏预览 HTML 按钮的图标改为 <code>fa-desktop</code>；</li>
+<li>改为默认开启搜索替换功能；</li>
+</ul>
+</li>
+<li>更换了关于 Editor.md 的标语（ slogan ）；</li>
+<li>标题按钮 <code>h</code> 改为大写的 <code>H</code>；</li>
+<li><code>saveToTextareas()</code> 方法更名为 <code>save()</code>；</li>
+<li>新增 ToC 下拉菜单、自定义 ToC 容器的功能；<ul>
+<li>新增 Markdown 扩展语法 <code>[TOCM]</code> ，自动生成 ToC 下拉菜单；</li>
+<li>新增配置项 <code>tocm</code> ，默认为 <code>true</code>，即可以使用 <code>[TOCM]</code> ；</li>
+<li>新增配置项 <code>tocDropdown</code> 和 <code>tocTitle</code> ；</li>
+<li>新增方法 <code>editormd.tocDropdownMenu()</code> ；</li>
+<li>新增配置项 <code>tocContainer</code> ，值为 jQuery 选择器，默认为空；</li>
+</ul>
+</li>
+<li>修改了配置项 <code>placeholder</code> 的默认值；</li>
+<li>改进对 IE8 的兼容支持；</li>
+<li>修复 Firefox 下因为 <code>Object.watch()</code> 而出现的问题；</li>
+<li>新增支持插入和解析（打印）分页符；<ul>
+<li>新增配置项 <code>pageBreak</code> ，默认值为 <code>true</code>；</li>
+<li>新增语法 <code>[========]</code> ，即括号内至少 8 个等号；</li>
+<li>新增插入分页符的工具栏图标和方法 <code>pagebreak()</code> ；</li>
+<li>新增插入分页符的快捷键 <code>Shift + Alt + P</code>；</li>
+</ul>
+</li>
+<li>修复一些 Bug，包括 <a href="https://github.com/pandao/editor.md/issues/51" target="_blank" rel="noopener">#51</a> 等；</li>
+<li>新增和修改以上更新的相关示例；</li>
+</ul>
+<h4 id="v1-4-1"><a href="#v1-4-1" class="headerlink" title="v1.4.1"></a>v1.4.1</h4><ul>
+<li>新增配置项 <code>syncScrolling</code>，即是否开启同步滚动预览，默认值为 <code>false</code> ； </li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/64" target="_blank" rel="noopener">＃64</a>；<ul>
+<li>更新 <code>editormd.katexURL</code> 资源地址的默认值，即更新版本为 <code>0.3.0</code> ； </li>
+<li>新增测试用例<code>tests/katex-tests.html</code>；</li>
+<li>修改示例文件<code>examples/katex.html</code>； </li>
+</ul>
+</li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/66" target="_blank" rel="noopener">＃66</a>；</li>
+<li>修复编辑器工具栏按钮 <code>:hover</code> CSS3 transition 无效的问题； </li>
+<li>修改了 <code>README.md</code>；</li>
+</ul>
+<h4 id="v1-4-2"><a href="#v1-4-2" class="headerlink" title="v1.4.2"></a>v1.4.2</h4><ul>
+<li>改进和增强自定义工具栏功能，支持图标按钮右对齐 <a href="https://github.com/pandao/editor.md/issues/69" target="_blank" rel="noopener">#69</a>；</li>
+<li>改进和增强 HTML 标签的解析过滤功能，支持过滤指定的属性等 <a href="https://github.com/pandao/editor.md/issues/70" target="_blank" rel="noopener">#70</a>；</li>
+<li>删除分支 <code>mathjax-version</code> 和 <code>v1.1.9</code>；</li>
+</ul>
+<h4 id="v1-4-3"><a href="#v1-4-3" class="headerlink" title="v1.4.3"></a>v1.4.3</h4><ul>
+<li>改进：可配置是否自动聚焦编辑器 <a href="https://github.com/pandao/editor.md/issues/74" target="_blank" rel="noopener">#74</a>；<ul>
+<li>新增配置项 <code>autoFocus</code>，默认值为 <code>true</code>; </li>
+</ul>
+</li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/77" target="_blank" rel="noopener">#77</a>；</li>
+<li>改进：帮助对话框里的链接改为新窗口打开，避免直接跳转到链接，导致编辑内容丢失的问题 <a href="https://github.com/pandao/editor.md/issues/79" target="_blank" rel="noopener">#79</a>；</li>
+<li>改进和完善编辑器配置项；<ul>
+<li>新增配置项 <code>tabSize</code>、<code>indentUnit</code> 和 <code>lineWrapping</code>；</li>
+<li>新增配置项 <code>autoCloseBrackets</code> 和 <code>showTrailingSpace</code> ；</li>
+<li>新增配置项 <code>matchBrackets</code>、<code>indentWithTabs</code> 和 <code>styleSelectedText</code>；</li>
+</ul>
+</li>
+<li>改进：修改 CSS <code>font-family</code>，改进跨平台中英文字体显示；</li>
+<li>修改了 <code>README.md</code>；</li>
+</ul>
+<h4 id="v1-4-4"><a href="#v1-4-4" class="headerlink" title="v1.4.4"></a>v1.4.4</h4><ul>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/81" target="_blank" rel="noopener">#81</a>，即不支持 <code>:+1:</code> 的问题；</li>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/85" target="_blank" rel="noopener">#85</a>，即图片上传返回结果不支持 <code>Content-Type=application/json</code> 的问题；</li>
+<li>修复图片上传无法显示 loading 的问题；</li>
+</ul>
+<h4 id="v1-4-5"><a href="#v1-4-5" class="headerlink" title="v1.4.5"></a>v1.4.5</h4><ul>
+<li>规范项目的中英文混排；</li>
+<li>新增配置项 <code>name</code>，用于指定 Markdown textarea 的 <code>name=&quot;xxxx&quot;</code> 属性；</li>
+<li>修复 Bug，即无法正确解析公式的 <code>&lt;</code> 和 <code>&gt;</code> 的问题 <a href="https://github.com/pandao/editor.md/issues/87" target="_blank" rel="noopener">#87</a>;</li>
+<li>修复 Bug，即 <code>getHTML()</code> 无效的问题 <a href="https://github.com/pandao/editor.md/issues/95" target="_blank" rel="noopener">#95</a>;</li>
+<li>修复 Bug，即火狐上传图片后无法返回值的问题 <a href="https://github.com/pandao/editor.md/issues/96" target="_blank" rel="noopener">#96</a>;<ul>
+<li>修改了图片上传插件；</li>
+<li>修改 PHP 上传类及示例；</li>
+</ul>
+</li>
+<li>方法更名：<code>extends()</code> 更名为 <code>extend()</code>，以兼容 IE8；</li>
+<li>修复 IE8 下 Emoji 正则表达式字符集越界的问题；</li>
+<li>更新了 <code>README.md</code> 和 <code>CHANGE.md</code> 等相关文档文件；</li>
+</ul>
+<h3 id="v1-5"><a href="#v1-5" class="headerlink" title="v1.5"></a>v1.5</h3><h4 id="v1-5-0"><a href="#v1-5-0" class="headerlink" title="v1.5.0"></a>v1.5.0</h4><p>主要更新：</p>
+<ul>
+<li>新增：编辑器黑色主题 Dark，改进自定义主题功能（即工具栏、编辑区、预览区可分别设置主题样式）；</li>
+<li>新增：多行公式支持；</li>
+<li>新增：支持非编辑状态下的 ToC 自定义容器；</li>
+<li>新增：支持设置为单向同步滚动；</li>
+<li>改进：编辑器样式美化，更换了滚动条样式; </li>
+<li>改进：提高同步滚动定位的精确度；</li>
+<li>改进：修复和改进 HTML 标签及属性过滤功能；</li>
+<li>改进：修复在 Bootstrap 下的兼容性问题；</li>
+<li>修复多处 Bug；</li>
+</ul>
+<p>具体更新：</p>
+<ul>
+<li><p>新增：解析后的代码块自动换行；</p>
+</li>
+<li><p>新增：支持多行公式；</p>
+<ul>
+<li>新增：新增语法：```math | latex | katex；</li>
+<li>改进：美化 KaTeX 公式，即加大字号等；</li>
+</ul>
+</li>
+<li><p>新增：支持设置为单向同步滚动，即只是编辑区单向同步滚动，配置项 <code>syncScrolling : &quot;single&quot;</code>；</p>
+<ul>
+<li>新增：配置同步滚动示例文件 <code>sync-scrolling.html</code>；</li>
+</ul>
+</li>
+<li><p>新增：增加了编辑器样式主题 Dark，即工具栏和预览区各自有一个暗黑色主题；</p>
+<ul>
+<li>变更：自 <code>v1.5.0</code> 开始，配置项 <code>theme</code> 改为指定 Editor.md 本身的主题；</li>
+<li>新增配置项 <code>editorTheme</code> ，用于指定编辑区的主题，即 CodeMirror 的主题；</li>
+<li>新增配置项 <code>previewTheme</code> ，用于指定预览区的主题；</li>
+<li>新增方法 <code>setEditorTheme()</code>，别名： <code>setCodeMirror()</code>；</li>
+<li>新增方法 <code>setPreviewTheme()</code>；</li>
+<li>修改了方法 <code>setTheme()</code> ；</li>
+<li>更换了滚动条样式，Only Webkit；</li>
+<li>改进全屏状态下的样式显示，去掉 JS 操作的部分，改为通过 CSS 样式类 <code>.editormd-fullscreen</code> 控制；</li>
+<li>修改和增加相关的方法、SCSS 文件及示例文件 <code>themes.html</code>；</li>
+</ul>
+</li>
+<li><p>新增：非编辑状态下 ToC 自定义容器支持；</p>
+<ul>
+<li>新增配置项 <code>markdownSourceCode</code>，即解析后是否保留源码，默认为不保留 <code>false</code>；</li>
+<li>新增配置项 <code>tocContainer</code>，值为自定义 ToC 容器的 ID 选择器 <code>#xxxxx</code>，默认为空；</li>
+<li>新增和修改了相关示例文件；</li>
+</ul>
+</li>
+<li><p>新增：新增加了 CSS 样式类 <code>editormd-preview-active</code>，可以控制全屏HTML预览时的内容层样式；</p>
+<ul>
+<li>修改了 <code>previewing()</code> 和 <code>previewed()</code> 方法；</li>
+<li>相关 issues <a href="https://github.com/pandao/editor.md/issues/103" target="_blank" rel="noopener">#103</a>；</li>
+<li>另外也调整了关闭按钮的位置；</li>
+</ul>
+</li>
+<li><p>改进：修复插入 Emoji <code>:moon:</code> 无法显示的问题，修改为其是 <code>:waxing_gibbous_moon:</code> 的别名 <a href="https://github.com/pandao/editor.md/pull/94" target="_blank" rel="noopener">#94</a>；</p>
+</li>
+<li><p>改进：修改了 CodeMirror 代码行的左右内间距，使其不会挨着左边的行号层；</p>
+<ul>
+<li>相关 issues <a href="https://github.com/pandao/editor.md/issues/97" target="_blank" rel="noopener">#97</a>；</li>
+</ul>
+</li>
+<li><p>改进：修改了同步滚动的定位算法，提高精确度；</p>
+<ul>
+<li>修正问题 <a href="https://github.com/pandao/editor.md/issues/99" target="_blank" rel="noopener">#99</a>；</li>
+<li>修改了 <code>bindScrollEvent()</code> 方法；</li>
+</ul>
+</li>
+<li><p>改进：完善 HTML 标签过滤功能，即代码块、<code>&lt;pre&gt;</code> 预格式文本和行内代码里的标签及属性不会被过滤；</p>
+<ul>
+<li>修复 Bug <a href="https://github.com/pandao/editor.md/issues/105" target="_blank" rel="noopener">#105</a>；</li>
+</ul>
+</li>
+<li><p>改进：当不显示行号时 <code>settings.lineNumbers == false</code>，CodeMirror 行号层去掉右边框； </p>
+</li>
+<li><p>改进：根据指针在当前行的位置更合理插入标题和水平线 <a href="https://github.com/pandao/editor.md/pull/104" target="_blank" rel="noopener">#104</a>；</p>
+</li>
+<li><p>改进：调整了字体，优先显示 <code>&quot;YaHei Consolas Hybrid&quot;, Consolas</code>；</p>
+</li>
+<li><p>改进：修复在 Bootstrap 下的兼容性问题，即因为 box-sizing 写错位置导致的弹出层宽度等错位问题 <a href="https://github.com/pandao/editor.md/issues/107" target="_blank" rel="noopener">#107</a>；</p>
+</li>
+</ul>
