@@ -1579,9 +1579,9 @@
             
             <tag> NLP </tag>
             
-            <tag> Attention </tag>
-            
             <tag> Transformer </tag>
+            
+            <tag> Attention </tag>
             
         </tags>
       
@@ -2163,17 +2163,6 @@
     
     
     <entry>
-      <title>留言板</title>
-      <link href="/contact/index.html"/>
-      <url>/contact/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>分类</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -2188,6 +2177,17 @@
       <title>about</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>留言板</title>
+      <link href="/contact/index.html"/>
+      <url>/contact/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
