@@ -1136,13 +1136,6 @@
 
   
   <url>
-    <loc>https://adaning.github.io/tags/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://adaning.github.io/tags/KGE/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1164,6 +1157,13 @@
   </url>
   
   <url>
+    <loc>https://adaning.github.io/tags/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://adaning.github.io/tags/NLP/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1171,7 +1171,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/CSS/</loc>
+    <loc>https://adaning.github.io/tags/BERT/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1199,13 +1199,6 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/BERT/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://adaning.github.io/tags/RTE/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1213,7 +1206,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/Transformer/</loc>
+    <loc>https://adaning.github.io/tags/CSS/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1227,6 +1220,13 @@
   </url>
   
   <url>
+    <loc>https://adaning.github.io/tags/Attention/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://adaning.github.io/tags/GNN/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1234,7 +1234,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/Attention/</loc>
+    <loc>https://adaning.github.io/tags/Transformer/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1276,6 +1276,13 @@
   </url>
   
   <url>
+    <loc>https://adaning.github.io/tags/Matery/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://adaning.github.io/tags/GAN/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1311,21 +1318,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/Matery/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://adaning.github.io/tags/%E5%BE%AA%E7%8E%AF%E5%8D%B7%E7%A7%AF/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1339,7 +1332,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/KBQA/</loc>
+    <loc>https://adaning.github.io/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1347,6 +1340,13 @@
   
   <url>
     <loc>https://adaning.github.io/tags/RL/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/KBQA/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1416,14 +1416,14 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/Latex/</loc>
+    <loc>https://adaning.github.io/tags/OKG/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/OKG/</loc>
+    <loc>https://adaning.github.io/tags/Latex/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1444,14 +1444,14 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/pytorch/</loc>
+    <loc>https://adaning.github.io/tags/Pytorch/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/Pytorch/</loc>
+    <loc>https://adaning.github.io/tags/pytorch/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1473,6 +1473,13 @@
   
   <url>
     <loc>https://adaning.github.io/tags/STL/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/PLM/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1507,7 +1514,14 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/PLM/</loc>
+    <loc>https://adaning.github.io/tags/MM/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/VLP/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1528,14 +1542,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/MM/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/VLP/</loc>
+    <loc>https://adaning.github.io/tags/%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1549,7 +1556,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/%E6%8E%92%E5%BA%8F/</loc>
+    <loc>https://adaning.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1570,14 +1577,14 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://adaning.github.io/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/</loc>
+    <loc>https://adaning.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1598,13 +1605,6 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/KNN/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://adaning.github.io/tags/%E5%86%B3%E7%AD%96%E6%A0%91/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1613,6 +1613,27 @@
   
   <url>
     <loc>https://adaning.github.io/tags/XGB/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/SVD/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/KNN/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1633,6 +1654,13 @@
   </url>
   
   <url>
+    <loc>https://adaning.github.io/tags/%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://adaning.github.io/tags/SVM/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1640,14 +1668,7 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/tags/SVD/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/</loc>
+    <loc>https://adaning.github.io/tags/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1655,6 +1676,13 @@
   
   <url>
     <loc>https://adaning.github.io/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/</loc>
+    <lastmod>2024-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adaning.github.io/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1669,34 +1697,6 @@
   
   <url>
     <loc>https://adaning.github.io/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/</loc>
-    <lastmod>2024-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adaning.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1754,14 +1754,14 @@
 
   
   <url>
-    <loc>https://adaning.github.io/categories/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://adaning.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adaning.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
+    <loc>https://adaning.github.io/categories/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1775,14 +1775,14 @@
   </url>
   
   <url>
-    <loc>https://adaning.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://adaning.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adaning.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://adaning.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2024-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
